@@ -18,9 +18,15 @@ const ItemList = () => {
     <div>
       <h1>Items List</h1>
       <ul>
-        {items.map(item => (
-          <li key={item.id}>{item.name}: {item.description}</li>
-        ))}
+        {items.length > 0 ? (
+          items.map(item => (
+            <li key={item.id}>
+              {item.name}: {item.description}
+            </li>
+          ))
+        ) : (
+          <p>No items found.</p>
+        )}
       </ul>
     </div>
   );

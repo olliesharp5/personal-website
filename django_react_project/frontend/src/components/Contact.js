@@ -27,7 +27,7 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div className="content">
       <h2>Contact</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />

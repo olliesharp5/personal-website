@@ -15,7 +15,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div>
+    <div className="content">
       <h2>Projects</h2>
       <ul>
         {projects.map(project => (

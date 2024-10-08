@@ -15,7 +15,7 @@ const ItemList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="content">
       <h1>Items List</h1>
       <ul>
         {items.length > 0 ? (

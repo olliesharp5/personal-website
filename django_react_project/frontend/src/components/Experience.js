@@ -15,7 +15,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div>
+    <div className="content">
       <h2>Experience</h2>
       <ul>
         {experiences.map(exp => (

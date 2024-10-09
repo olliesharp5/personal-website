@@ -1,7 +1,7 @@
 from rest_framework import viewsets
-from .models import Item
-from .serializers import ItemSerializer
+from .models import Skill
+from .serializers import SkillSerializer
 
-class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class SkillViewSet(viewsets.ModelViewSet):
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer

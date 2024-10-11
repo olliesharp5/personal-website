@@ -8,9 +8,12 @@ class Skill(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(10)],
         help_text="Proficiency level from 1 to 10"
     )
-    icon = models.ImageField(upload_to='skills/', blank=True, null=True)
+    icon = models.ImageField(upload_to='skill', blank=True, null=True)
 
     def save(self, *args, **kwargs):
+        if self.icon:
+            # Replace spaces in the filename with underscores
+            self.icon.name = self.icon.name.replace(" ", "_")
         print(f"Attempting to save icon: {self.icon}")
         super().save(*args, **kwargs)
         print(f"Icon saved at URL: {self.icon.url}")

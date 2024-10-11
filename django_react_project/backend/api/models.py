@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.core.files.storage import default_storage
-from django.core.files.base import ContentFile
+
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)

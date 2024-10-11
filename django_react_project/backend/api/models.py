@@ -9,7 +9,7 @@ class Skill(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(10)],
         help_text="Proficiency level from 1 to 10"
     )
-    icon = models.ImageField(upload_to='skills/icons/', blank=True, null=True)
+    icon = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     def save(self, *args, **kwargs):
         print(f"Attempting to save icon: {self.icon}")

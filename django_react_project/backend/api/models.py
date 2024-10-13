@@ -53,3 +53,21 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.project.title}"
+    
+
+class Company(models.Model):
+    name = models.CharField(max_length=200)
+    logo = models.ImageField(upload_to='experiences/logos/', blank=True, null=True)  # Company logo
+
+    def __str__(self):
+        return self.name
+
+class Role(models.Model):
+    company = models.ForeignKey(Company, related_name='roles', on_delete=models.CASCADE)  # Link to the company
+    title = models.CharField(max_length=200)  # Job title or role
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)  # Leave blank for ongoing roles
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.title} at {self.company.name}"

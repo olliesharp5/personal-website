@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Skill, Project, ProjectImage, Company, Role
+from .models import Skill, Project, ProjectImage, Company, Role, Contact
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +30,8 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = ['id', 'name', 'logo', 'roles']
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = '__all__'

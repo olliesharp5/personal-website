@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from .models import Skill, Project, ProjectImage, Company, Role
-from .serializers import SkillSerializer, ProjectSerializer, ProjectImageSerializer, CompanySerializer, RoleSerializer
+from .models import Skill, Project, ProjectImage, Company, Role, Contact
+from .serializers import SkillSerializer, ProjectSerializer, ProjectImageSerializer, CompanySerializer, RoleSerializer, ContactSerializer
 
 class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
@@ -22,3 +22,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class RoleViewSet(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
+
+class ContactViewSet(viewsets.ModelViewSet):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer

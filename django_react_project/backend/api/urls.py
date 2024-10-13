@@ -8,7 +8,7 @@ router.register(r'projects', ProjectViewSet)
 router.register(r'project images', ProjectImagesViewSet)
 router.register(r'companies', CompanyViewSet)
 router.register(r'roles', RoleViewSet)
-router.register(r'contact', ContactViewSet)
+router.register(r'contacts', ContactViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

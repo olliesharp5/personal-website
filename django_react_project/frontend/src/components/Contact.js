@@ -15,7 +15,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://127.0.0.1:8000/api/contacts/', formData)
+    axios.post('http://127.0.0.1:8000/contacts/', formData)
       .then(response => {
         alert('Message sent successfully!');
         setFormData({ name: '', email: '', subject: '', message: '' });

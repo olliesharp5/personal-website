@@ -9,16 +9,4 @@ const Footer = () => {
   );
 };
 
-const styles = {
-  footer: {
-    backgroundColor: '#f1f1f1',
-    padding: '20px',
-    textAlign: 'center',
-    position: 'relative',
-    left: '0',
-    bottom: '0',
-    width: '100%',
-  },
-};
-
 export default Footer;

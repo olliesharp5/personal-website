@@ -146,12 +146,12 @@ button:hover {
 }
 
 .slide-in-top {
-  animation: slide-in-top 0.5s ease-out forwards;
+  animation: slide-in-top 0.7s ease-out forwards;
 }
 
 @keyframes slide-in-top {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-20px);
     opacity: 0;
   }
   100% {

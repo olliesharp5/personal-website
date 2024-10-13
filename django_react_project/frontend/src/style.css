@@ -145,6 +145,21 @@ button:hover {
     background-color: #555;
 }
 
+.slide-in-top {
+  animation: slide-in-top 0.5s ease-out forwards;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Footer styles */
 footer {
   background-color: #000;

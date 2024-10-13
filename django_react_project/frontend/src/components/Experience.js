@@ -5,7 +5,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/experiences/')
+    axios.get('http://127.0.0.1:8000/companies/')
       .then(response => {
         setExperiences(response.data);
       })

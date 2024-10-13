@@ -17,10 +17,17 @@ class RoleInline(admin.TabularInline):
 class CompanyAdmin(admin.ModelAdmin):
     inlines = [RoleInline]
 
+class ContactAdmin(admin.ModelAdmin):
+    def has_change_permission(self, request, obj=None):
+        return False  # Disable the ability to change any contact instance
+
+    list_display = ('name', 'email', 'subject', 'created_at')
+    readonly_fields = ('name', 'email', 'subject', 'message', 'created_at')
+
 # Register your models here.
 admin.site.register(Skill)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProjectImage)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Role)
-admin.site.register(Contact)
+admin.site.register(Contact, ContactAdmin)

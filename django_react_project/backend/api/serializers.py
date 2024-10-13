@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Skill, Project, ProjectImage
+from .models import Skill, Project, ProjectImage, Company, Role
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,3 +18,15 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ['id', 'title', 'description', 'technology', 'completed_date', 'status', 'is_code_institute', 'project_images']
+
+class RoleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Role
+        fields = ['title', 'start_date', 'end_date', 'description']
+
+class CompanySerializer(serializers.ModelSerializer):
+    roles = RoleSerializer(many=True, read_only=True)  # Nested serializer for roles
+
+    class Meta:
+        model = Company
+        fields = ['id', 'name', 'logo', 'roles']

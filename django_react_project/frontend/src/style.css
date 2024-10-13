@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
@@ -9,6 +12,7 @@ body {
 }
 
 .App {
+    flex: 1;
     text-align: center;
 }
 
@@ -140,4 +144,25 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+/* Footer styles matching navbar */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 16px;
 }

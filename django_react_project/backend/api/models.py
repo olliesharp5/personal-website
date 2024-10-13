@@ -61,6 +61,10 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Employer"
+        verbose_name_plural = "Employers"
 
 class Role(models.Model):
     company = models.ForeignKey(Company, related_name='roles', on_delete=models.CASCADE)  # Link to the company
@@ -71,3 +75,7 @@ class Role(models.Model):
 
     def __str__(self):
         return f"{self.title} at {self.company.name}"
+    
+    class Meta:
+        verbose_name = "Position"
+        verbose_name_plural = "Positions"

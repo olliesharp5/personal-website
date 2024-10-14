@@ -8,6 +8,9 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('images/background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .App {
@@ -190,7 +193,6 @@ footer p {
   flex: 1;
 }
 
-/* Styling for "Powered by" text and logos */
 .powered-by {
   display: flex;
   align-items: center;
@@ -202,7 +204,6 @@ footer p {
   transition: transform 0.3s ease;
 }
 
-/* Increase size of Django logo */
 .powered-by img#django-logo {
   width: 50px;
   height: auto;

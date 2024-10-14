@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import Home from './components/Home';
@@ -17,20 +17,43 @@ const navVariants = {
   })
 };
 
-const AnimatedRoutes = () => {
+const AnimatedRoutes = ({ navItems }) => {
   const location = useLocation();
+  const prevIndexRef = useRef(0); // Track the previous page index using a ref
+  const prevPathRef = useRef(location.pathname); // Track the previous path using a ref
+  const currentPath = location.pathname;
+
+  // Find the current and target page indices
+  const currentIndex = navItems.findIndex(item => item.path === currentPath);
+
+  // Determine the direction of the animation (calculate only when path changes)
+  const direction = currentIndex > prevIndexRef.current ? 1 : -1;
+
+  // Update the previous index and path only when the path changes
+  useEffect(() => {
+    prevIndexRef.current = currentIndex;
+    prevPathRef.current = currentPath;
+  }, [currentPath]);
 
   const pageVariants = {
-    initial: { opacity: 0, x: '100%' },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: '-100%', transition: { duration: 0.5 } }
+    initial: (direction) => ({
+      opacity: 0,
+      x: direction > 0 ? '100%' : '-100%' // Enter from right if moving forward, from left if moving backward
+    }),
+    animate: { opacity: 1, x: 0 }, // Fully visible at center
+    exit: (direction) => ({
+      opacity: 0,
+      x: direction > 0 ? '-100%' : '100%', // Exit to left if moving forward, right if moving backward
+      transition: { duration: 0.5 }
+    })
   };
 
   return (
-    <div className="content-container">
-      <AnimatePresence>
+    <div className="content-container" style={{ position: 'relative' }}>
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={location.pathname}
+          custom={direction}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -80,7 +103,7 @@ const App = () => {
         </nav>
 
         {/* Render animated routes */}
-        <AnimatedRoutes />
+        <AnimatedRoutes navItems={navItems} />
 
         <Footer />
       </div>

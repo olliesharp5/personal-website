@@ -1,24 +1,31 @@
-// src/Footer.js
 import React from 'react';
-import ReactLogo from '../images/react_icon.svg'
-import DjangoRestLogo from '../images/django_rest_icon.svg'
+import { motion } from 'framer-motion';
+import ReactLogo from '../images/react_icon.svg';
+import DjangoRestLogo from '../images/django_rest_icon.svg';
+
+const footerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1, delay: 1 } }
+};
 
 const Footer = () => {
   return (
-    <footer>
+    <motion.footer
+      initial="hidden"
+      animate="visible"
+      variants={footerVariants}
+    >
       <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
-      <div className="powered-by">
+      <motion.div className="powered-by" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1.5, duration: 1 } }}>
         <span>Powered by</span>
-        {/* Link to React website */}
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          <img id="react-logo" src={ReactLogo} alt="React Logo" />
+          <motion.img id="react-logo" src={ReactLogo} alt="React Logo" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2 } }} />
         </a>
-        {/* Link to Django REST Framework website */}
         <a href="https://www.django-rest-framework.org/" target="_blank" rel="noopener noreferrer">
-          <img id="django-logo" src={DjangoRestLogo} alt="Django REST Framework Logo" />
+          <motion.img id="django-logo" src={DjangoRestLogo} alt="Django REST Framework Logo" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2.5 } }} />
         </a>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 

@@ -1,10 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Slider from 'react-slick'; // Import react-slick for the carousel
 import { motion } from 'framer-motion';
+
+// Custom arrow components
+const NextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="slick-next" onClick={(e) => { e.stopPropagation(); onClick(); }}>
+      › {/* You can replace this with an icon if needed */}
+    </div>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="slick-prev" onClick={(e) => { e.stopPropagation(); onClick(); }}>
+      ‹ {/* You can replace this with an icon if needed */}
+    </div>
+  );
+};
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null); // State to track which project is expanded
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/projects/')
@@ -16,9 +36,21 @@ const Projects = () => {
       });
   }, []);
 
-  // Handle clicking a project to expand it
   const handleExpandProject = (projectId) => {
-    setSelectedProject(projectId === selectedProject ? null : projectId); // Toggle expanded view
+    setSelectedProject(projectId === selectedProject ? null : projectId);
+  };
+
+  // Settings for react-slick carousel with custom arrows
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <NextArrow />, // Custom next arrow
+    prevArrow: <PrevArrow />, // Custom previous arrow
   };
 
   return (
@@ -29,34 +61,66 @@ const Projects = () => {
           <motion.div
             key={project.id}
             className="project-card"
-            layout // Enable Framer Motion layout animations
-            onClick={() => handleExpandProject(project.id)} // Click to toggle expanded view
-            whileHover={{ scale: 1.05 }} // Add hover effect
+            layout
+            onClick={() => handleExpandProject(project.id)}
           >
-            <motion.h3 layout>{project.title}</motion.h3>
-            <motion.p layout>{project.description.slice(0, 100)}...</motion.p> {/* Short description */}
+            {/* Minimized View: Only title and image */}
+            {selectedProject !== project.id && (
+              <div className="project-preview">
+                <motion.h3 layout>{project.title}</motion.h3> {/* Only animate layout for the whole card, not each element */}
+                {project.project_images.length > 0 && (
+                  <motion.img
+                    className="preview-image"
+                    src={project.project_images[0].images} // Display first image as preview
+                    alt={project.title}
+                    layout="position" // Only animate the position of the image, not size
+                  />
+                )}
+              </div>
+            )}
 
-            {/* Conditionally render the expanded content */}
+            {/* Expanded View */}
             {selectedProject === project.id && (
               <motion.div
                 className="expanded-content"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4 }} // Faster transition to avoid long text stretches
               >
+                {/* Title */}
+                <h3>{project.title}</h3>
+
+                {/* Description */}
                 <p>{project.description}</p>
+
+                {/* Status */}
                 <p>Status: {project.status}</p>
-                <p>Technologies:</p>
-                <ul>
+
+                {/* Technology Icons */}
+                <div className="technologies-row">
                   {project.technology.map(skill => (
-                    <li key={skill.name}>{skill.name}</li>
+                    <div key={skill.name} className="tech-icon-wrapper">
+                      <img src={skill.icon} alt={skill.name} className="tech-icon" />
+                      <span className="tooltip">{skill.name}</span> {/* Tooltip on hover */}
+                    </div>
                   ))}
-                </ul>
-                {project.project_images.length > 0 && (
-                  <div className="project-images">
-                    {project.project_images.map(image => (
-                      <img key={image.images} src={image.images} alt={project.title} />
-                    ))}
+                </div>
+
+                {/* Image Slideshow using react-slick */}
+                {project.project_images.length > 1 && (
+                  <div className="image-carousel">
+                    <Slider {...settings}>
+                      {project.project_images.map((image, index) => (
+                        <div key={index}>
+                          <img
+                            src={image.images}
+                            alt={`${project.title} image ${index + 1}`}
+                            className="carousel-image"
+                          />
+                        </div>
+                      ))}
+                    </Slider>
                   </div>
                 )}
               </motion.div>

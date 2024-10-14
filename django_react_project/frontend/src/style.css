@@ -11,6 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .App {
@@ -155,31 +156,117 @@ button:hover {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .project-card {
-  background: #f8f8f8;
+  background: #2e2e2e;
+  color: #fff;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.project-card h3 {
-  margin: 0;
-  font-size: 1.25rem;
+.project-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-image {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .expanded-content {
   margin-top: 10px;
+  padding-bottom: 40px;
 }
 
-.project-images img {
-  max-width: 100%;
-  margin-top: 10px;
+.technologies-row {
+  display: flex;
+  gap: 10px;
+}
+
+.tech-icon-wrapper {
+  position: relative;
+}
+
+.tech-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: none;
+  white-space: nowrap;
+}
+
+.tech-icon-wrapper:hover .tooltip {
+  display: block;
+}
+
+/* Slick-carousel styles */
+.image-carousel {
+  margin-top: 20px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
+}
+
+.slick-dots li button:before {
+  color: #fff;
+}
+
+.slick-arrow {
+  color: #000;
+}
+
+.slick-prev, .slick-next {
+  font-size: 30px !important;
+  width: 50px !important;
+  height: 50px !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1000 !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  content: '' !important;
+}
+
+.slick-prev:hover, .slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.slick-prev {
+  left: 10px !important;
+}
+
+.slick-next {
+  right: 10px !important;
 }
 
 /* Footer styles */

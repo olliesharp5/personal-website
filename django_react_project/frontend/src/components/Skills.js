@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -17,13 +18,30 @@ const Skills = () => {
   return (
     <div className="content">
       <h2>Skills</h2>
-      <ul>
+      <div className="skills-container">
         {skills.map(skill => (
-          <li key={skill.id}>
-            {skill.name}: {skill.proficiency}/10
-          </li>
+          <motion.div 
+            key={skill.id}
+            className="skill-item"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: skill.id * 0.2 }}
+          >
+            <div className="skill-header">
+              <img src={skill.icon} alt={`${skill.name} icon`} className="skill-icon" />
+              <h3>{skill.name}</h3>
+            </div>
+            <motion.div 
+              className="skill-bar"
+              initial={{ width: 0 }}
+              animate={{ width: `${(skill.proficiency / 10) * 100}%` }}
+              transition={{ duration: 1 }}
+            >
+              <span>{skill.proficiency}/10</span>
+            </motion.div>
+          </motion.div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

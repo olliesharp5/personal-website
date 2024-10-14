@@ -61,6 +61,8 @@ const Projects = () => {
           <motion.div
             key={project.id}
             className="project-card"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.8 }}
             layout
             onClick={() => handleExpandProject(project.id)}
           >

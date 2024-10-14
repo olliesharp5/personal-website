@@ -9,7 +9,7 @@ class SkillSerializer(serializers.ModelSerializer):
 class ProjectImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectImage
-        fields = ['id', 'project', 'image']
+        fields = ['id', 'project', 'images']
 
 class ProjectSerializer(serializers.ModelSerializer):
     project_images = ProjectImageSerializer(many=True, read_only=True)  # Nested serializer for related images

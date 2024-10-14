@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null); // State to track which project is expanded
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/projects/')
@@ -14,20 +16,54 @@ const Projects = () => {
       });
   }, []);
 
+  // Handle clicking a project to expand it
+  const handleExpandProject = (projectId) => {
+    setSelectedProject(projectId === selectedProject ? null : projectId); // Toggle expanded view
+  };
+
   return (
     <div className="content">
       <h2>Projects</h2>
-      <ul>
+      <div className="projects-grid">
         {projects.map(project => (
-          <li key={project.id}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            {project.project_url && (
-              <a href={project.project_url} target="_blank" rel="noopener noreferrer">View Project</a>
+          <motion.div
+            key={project.id}
+            className="project-card"
+            layout // Enable Framer Motion layout animations
+            onClick={() => handleExpandProject(project.id)} // Click to toggle expanded view
+            whileHover={{ scale: 1.05 }} // Add hover effect
+          >
+            <motion.h3 layout>{project.title}</motion.h3>
+            <motion.p layout>{project.description.slice(0, 100)}...</motion.p> {/* Short description */}
+
+            {/* Conditionally render the expanded content */}
+            {selectedProject === project.id && (
+              <motion.div
+                className="expanded-content"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+              >
+                <p>{project.description}</p>
+                <p>Status: {project.status}</p>
+                <p>Technologies:</p>
+                <ul>
+                  {project.technology.map(skill => (
+                    <li key={skill.name}>{skill.name}</li>
+                  ))}
+                </ul>
+                {project.project_images.length > 0 && (
+                  <div className="project-images">
+                    {project.project_images.map(image => (
+                      <img key={image.images} src={image.images} alt={project.title} />
+                    ))}
+                  </div>
+                )}
+              </motion.div>
             )}
-          </li>
+          </motion.div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -148,6 +148,40 @@ button:hover {
     background-color: #555;
 }
 
+/* Project styles */
+.content {
+  padding: 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+}
+
+.project-card {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.expanded-content {
+  margin-top: 10px;
+}
+
+.project-images img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
 /* Footer styles */
 footer {
   background-color: #000;

@@ -36,6 +36,7 @@ const AnimatedRoutes = () => {
           exit="exit"
           variants={pageVariants}
           transition={{ duration: 0.5 }}
+          style={{ position: 'absolute', width: '100%' }}
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />

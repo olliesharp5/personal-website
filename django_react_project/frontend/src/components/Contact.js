@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { successToast, errorToast } from '../toastConfig'; // Import the toast functions
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +11,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false); // For showing the loading spinner
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,17 +19,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Show the loading spinner
+    setIsSubmitting(true);
+
     axios.post('http://127.0.0.1:8000/contacts/', formData)
       .then(response => {
-        alert('Message sent successfully!');
+        successToast(formData.email); // Pass the email to the success toast
         setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSubmitting(false); // Hide the loading spinner
+        setIsSubmitting(false);
       })
       .catch(error => {
-        console.error('Error sending message:', error);
-        alert('Failed to send the message.');
-        setIsSubmitting(false); // Hide the loading spinner
+        errorToast(); // No need to pass anything for the error toast
+        setIsSubmitting(false);
       });
   };
 
@@ -69,6 +72,8 @@ const Contact = () => {
           {isSubmitting ? <span className="spinner"></span> : "Send"}
         </button>
       </form>
+      {/* Toast notification container */}
+      <ToastContainer />
     </div>
   );
 };

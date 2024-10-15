@@ -22,7 +22,12 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) newErrors.email = 'Email is required';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format check
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
     if (!formData.subject) newErrors.subject = 'Subject is required';
     if (!formData.message) newErrors.message = 'Message is required';
     return newErrors;
@@ -30,7 +35,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -54,7 +58,7 @@ const Contact = () => {
   return (
     <div className="content">
       <h2>Contact</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="form-group">
           <input 
             type="text" 

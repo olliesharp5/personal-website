@@ -135,8 +135,9 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 600px; /* Adjust the max-width of the form */
+  width: 100%; /* Make the form take up full width */
+  margin: 0 auto; /* Center the form */
 }
 
 input, textarea {
@@ -146,8 +147,11 @@ input, textarea {
   background-color: #222;
   color: white;
   font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
+
 
 input:focus, textarea:focus {
   border-color: #999;
@@ -271,7 +275,7 @@ button:disabled {
 .tech-icon {
   width: 40px;
   height: 40px;
-  flex-shrink: 0; /* Prevent icons from shrinking when there's not enough space */
+  flex-shrink: 0;
 }
 
 .tooltip {

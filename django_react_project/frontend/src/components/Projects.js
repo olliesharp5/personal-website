@@ -100,13 +100,15 @@ const Projects = () => {
                 <p>Status: {project.status}</p>
 
                 {/* Technology Icons */}
-                <div className="technologies-row">
-                  {project.technology.map(skill => (
-                    <div key={skill.name} className="tech-icon-wrapper">
-                      <img src={skill.icon} alt={skill.name} className="tech-icon" />
-                      <span className="tooltip">{skill.name}</span> {/* Tooltip on hover */}
-                    </div>
-                  ))}
+                <div className="technologies-container">
+                  <div className="technologies-row">
+                    {project.technology.map(skill => (
+                      <div key={skill.name} className="tech-icon-wrapper">
+                        <img src={skill.icon} alt={skill.name} className="tech-icon" />
+                        <span className="tooltip">{skill.name}</span> {/* Tooltip on hover */}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Image Slideshow using react-slick */}

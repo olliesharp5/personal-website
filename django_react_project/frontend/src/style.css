@@ -196,11 +196,20 @@ button:hover {
   padding-bottom: 40px;
 }
 
+.technologies-container {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
 .technologies-row {
   display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
+  flex-wrap: nowrap;
   gap: 10px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .technologies-row::-webkit-scrollbar {
@@ -218,13 +227,14 @@ button:hover {
 
 .tech-icon-wrapper {
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
   position: relative;
 }
 
 .tech-icon {
   width: 40px;
   height: 40px;
+  flex-shrink: 0; /* Prevent icons from shrinking when there's not enough space */
 }
 
 .tooltip {
@@ -247,7 +257,7 @@ button:hover {
 
 /* Slick-carousel styles */
 .image-carousel {
-  margin-top: 20px;
+  padding-top: 10px;
 }
 
 .carousel-image {
@@ -342,7 +352,6 @@ footer {
   padding: 20px;
   text-align: center;
   width: 100%;
-  position: fixed;
   bottom: 0;
   left: 0;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);

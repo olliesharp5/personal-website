@@ -35,38 +35,39 @@ const Contact = () => {
 
   return (
     <div className="content">
-      <h2>Contact</h2>
+      <h2>Contact me!</h2>
+      <h4>Interested in working together or have questions? Feel free to reach out via the form below. I'm open to new opportunities and collaborations, and I'd love to hear from you.</h4>
       <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Name" 
-          value={formData.name} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
         />
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Email" 
-          value={formData.email} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
         />
-        <input 
-          type="text" 
-          name="subject" 
-          placeholder="Subject" 
-          value={formData.subject} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={formData.subject}
+          onChange={handleChange}
+          required
         />
-        <textarea 
-          name="message" 
-          placeholder="Message" 
-          value={formData.message} 
-          onChange={handleChange} 
-          required 
+        <textarea
+          name="message"
+          placeholder="Message"
+          value={formData.message}
+          onChange={handleChange}
+          required
         />
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? <span className="spinner"></span> : "Send"}

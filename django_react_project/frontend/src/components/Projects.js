@@ -94,7 +94,7 @@ const Projects = () => {
                 <h3>{project.title}</h3>
 
                 {/* Description */}
-                <p>{project.description}</p>
+                <p className='project-description'>{project.description}</p>
 
                 {/* Technology Icons */}
                 <div className="technologies-container">

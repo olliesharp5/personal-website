@@ -297,6 +297,14 @@ button:disabled {
   padding-bottom: 40px;
 }
 
+.project-description {
+  border: 3px solid rgb(65, 65, 65);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
 .technologies-container {
   display: flex;
   justify-content: center;

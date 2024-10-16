@@ -96,9 +96,6 @@ const Projects = () => {
                 {/* Description */}
                 <p>{project.description}</p>
 
-                {/* Status */}
-                <p>Status: {project.status}</p>
-
                 {/* Technology Icons */}
                 <div className="technologies-container">
                   <div className="technologies-row">

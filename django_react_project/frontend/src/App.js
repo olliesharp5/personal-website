@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
+import { slide as Menu } from 'react-burger-menu';
 import Home from './components/Home';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -83,17 +84,40 @@ const App = () => {
     { name: "Contact", path: "/contact" }
   ];
 
+  const [isOpen, setIsOpen] = useState(false); // State to handle burger menu
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <Router>
       <div className="App">
-        <nav>
+        {/* Custom "Menu" button for small screens */}
+        <div className="custom-menu-button" onClick={() => setIsOpen(!isOpen)}>
+          Menu
+        </div>
+
+        {/* Burger menu for mobile */}
+        <Menu
+          isOpen={isOpen}
+          onStateChange={(state) => setIsOpen(state.isOpen)}
+          customBurgerIcon={false}  // Remove default burger icon
+        >
+          {navItems.map((item) => (
+            <Link to={item.path} key={item.name} onClick={closeMenu}>
+              {item.name}
+            </Link>
+          ))}
+        </Menu>
+
+        {/* Desktop navbar */}
+        <nav className="desktop-nav">
           <ul>
             {navItems.map((item, index) => (
               <motion.li
                 key={item.name}
-                custom={index}
                 initial="hidden"
                 animate="visible"
+                custom={index}
                 variants={navVariants}
               >
                 <Link to={item.path}>{item.name}</Link>
@@ -102,7 +126,7 @@ const App = () => {
           </ul>
         </nav>
 
-        {/* Render animated routes */}
+        {/* Render animated routes with swipe animations */}
         <AnimatedRoutes navItems={navItems} />
 
         <Footer />

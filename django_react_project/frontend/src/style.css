@@ -12,6 +12,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 .App {
@@ -19,6 +20,7 @@ body {
     text-align: center;
 }
 
+/*Standard Nav Styles*/
 nav {
     background-color: #000;
     padding: 20px 10px;
@@ -103,6 +105,64 @@ nav ul li a:hover::after {
 
 nav ul li a {
     animation: fadeIn 0.5s ease forwards;
+}
+
+/*Compact Nav Styles*/
+.custom-menu-button {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 999; /* Ensure it appears above other content */
+  display: none; /* Hide by default */
+}
+
+/* Show "Menu" button on small screens */
+@media (max-width: 768px) {
+  .custom-menu-button {
+      display: block;
+  }
+}
+
+/* Hide desktop nav on small screens */
+.desktop-nav {
+  display: none;
+}
+
+/* Show desktop nav on larger screens */
+@media (min-width: 769px) {
+  .desktop-nav {
+      display: block;
+  }
+}
+
+/* Burger menu customizations */
+.bm-burger-button {
+  display: none;
+}
+
+.bm-menu {
+  background: #000;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-item {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.bm-item:hover {
+  color: #ddd;
 }
 
 /* General styling for content */

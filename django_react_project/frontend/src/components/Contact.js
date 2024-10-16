@@ -57,7 +57,8 @@ const Contact = () => {
 
   return (
     <div className="content">
-      <h2>Contact</h2>
+      <h2>Contact me!</h2>
+      <h4>Interested in working together or have questions? Feel free to reach out via the form below. I'm open to new opportunities and collaborations, and I'd love to hear from you.</h4>
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-group">
           <input 

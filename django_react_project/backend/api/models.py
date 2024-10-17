@@ -33,6 +33,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     technology = models.ManyToManyField(Skill, related_name='projects')
+    github_link = models.URLField(max_length=200, default='https://github.com/olliesharp5')
     completed_date = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='in_progress')
     is_code_institute = models.BooleanField(default=False, help_text="Check if the project was completed as part of Code Institute")

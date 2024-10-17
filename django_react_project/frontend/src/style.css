@@ -20,7 +20,7 @@ body {
     text-align: center;
 }
 
-/*Standard Nav Styles*/
+/*    STANDARD NAV STYLES    */
 nav {
     background-color: #000;
     padding: 20px 10px;
@@ -107,7 +107,7 @@ nav ul li a {
     animation: fadeIn 0.5s ease forwards;
 }
 
-/*Compact Nav Styles*/
+/*    COMPACT NAV STYLES    */
 .custom-menu-button {
   position: fixed;
   top: 10px;
@@ -190,7 +190,7 @@ h1, h2 {
     color: #333;
 }
 
-/* Contact form styling */
+/*     CONTACT FORM STYLING     */
 form {
   display: flex;
   flex-direction: column;
@@ -261,7 +261,7 @@ button:disabled {
   }
 }
 
-/* Project styles */
+/*     PROJECT STYLES     */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -269,6 +269,7 @@ button:disabled {
 }
 
 .project-card {
+  position: relative;
   background: #2e2e2e;
   color: #fff;
   padding: 15px;
@@ -292,6 +293,38 @@ button:disabled {
   border-radius: 8px;
 }
 
+/* Default Hidden Arrow */
+.expand-arrow {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  font-size: 24px;
+  color: #fff;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Downward Arrow on Card Hover (Collapsed State) */
+.project-card:hover:not(.expanded) .expand-arrow {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Show Upward Arrow on Hover in Expanded State */
+.project-card.expanded:hover .expand-arrow {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) rotate(180deg);
+}
+
+/* Hover Effect for Arrow */
+.expand-arrow:hover {
+  color: #f0f0f0;
+  transform: translateX(-50%) translateY(0) scale(1.1);
+  cursor: pointer;
+}
+
+/* Expanded Content */
 .expanded-content {
   margin-top: 10px;
   padding-bottom: 40px;
@@ -442,7 +475,7 @@ button:disabled {
   right: 10px !important;
 }
 
-/* Skills styles */
+/*     SKILLS STYLES     */
 .skills-container {
   display: flex;
   flex-direction: column;
@@ -484,7 +517,7 @@ button:disabled {
   color: white;
 }
 
-/* Footer styles */
+/*   FOOTER STYLES   */
 footer {
   background-color: #000;
   color: #fff;

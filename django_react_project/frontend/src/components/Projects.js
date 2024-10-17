@@ -60,7 +60,7 @@ const Projects = () => {
         {projects.map(project => (
           <motion.div
             key={project.id}
-            className="project-card"
+            className={`project-card ${selectedProject === project.id ? 'expanded' : ''}`}
             whileHover={selectedProject !== project.id ? { scale: 1.03 } : undefined}
             whileTap={selectedProject !== project.id ? { scale: 0.8 } : undefined}
             layout
@@ -80,6 +80,11 @@ const Projects = () => {
                 )}
               </div>
             )}
+
+            {/* Downward Arrow for hover indication */}
+            <div className="expand-arrow">
+              &#x25BC; {/* Unicode for a downward triangle/arrow */}
+            </div>
 
             {/* Expanded View */}
             {selectedProject === project.id && (

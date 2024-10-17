@@ -337,30 +337,30 @@ button:disabled {
 
 .technologies-container {
   display: flex;
-  justify-content: center;
-  overflow-x: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .technologies-row {
-  display: flex;
-  flex-wrap: nowrap;
+  display: inline-flex;
   gap: 10px;
-  padding-bottom: 10px;
-  overflow-x: hidden;
-  justify-content: center;
-  white-space: nowrap;
+  margin: 0 auto;
+  flex: 0 1 auto;
 }
 
-.technologies-row::-webkit-scrollbar {
+.technologies-container::-webkit-scrollbar {
   height: 8px;
 }
 
-.technologies-row::-webkit-scrollbar-thumb {
+.technologies-container::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
 }
 
-.technologies-row::-webkit-scrollbar-thumb:hover {
+.technologies-container::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
 

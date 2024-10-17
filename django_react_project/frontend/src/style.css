@@ -297,6 +297,36 @@ button:disabled {
   padding-bottom: 40px;
 }
 
+.title-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+  position: relative; 
+}
+
+.title-container h3 {
+  margin: 0 auto; 
+}
+
+.repo-link {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  padding: 10px 20px; /* Increase padding for a button-like appearance */
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth animation */
+}
+
+.repo-link:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
 .project-description {
   border: 3px solid rgb(65, 65, 65);
     border-radius: 12px;

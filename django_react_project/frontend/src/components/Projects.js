@@ -91,7 +91,18 @@ const Projects = () => {
                 transition={{ duration: 0.4 }} // Faster transition to avoid long text stretches
               >
                 {/* Title */}
-                <h3>{project.title}</h3>
+                <div className='title-container'>
+                  <h3>{project.title}</h3>
+                  <a
+                    href={project.github_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="repo-link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    GitHub Repo
+                  </a>
+                </div>
 
                 {/* Description */}
                 <p className='project-description'>{project.description}</p>

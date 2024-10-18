@@ -81,7 +81,8 @@ const App = () => {
     { name: "Projects", path: "/projects" },
     { name: "Skills", path: "/skills" },
     { name: "Experience", path: "/experience" },
-    { name: "Contact", path: "/contact" }
+    { name: "Contact", path: "/contact" },
+    { name: "Download CV", path: "/cv", isDownload: true }
   ];
 
   const [isOpen, setIsOpen] = useState(false); // State to handle burger menu
@@ -114,14 +115,21 @@ const App = () => {
           <ul>
             {navItems.map((item, index) => (
               <motion.li
-                key={item.name}
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={navVariants}
-              >
+              key={item.name}
+              initial="hidden"
+              animate="visible"
+              custom={index}
+              variants={navVariants}
+            >
+              {item.isDownload ? (
+                // Render a button for the CV download
+                <a href="/path/to/your/cv.pdf" download="OliverSharp_CV.pdf">
+                  <button className="cv-button">Download my CV</button>
+                </a>
+              ) : (
                 <Link to={item.path}>{item.name}</Link>
-              </motion.li>
+              )}
+            </motion.li>
             ))}
           </ul>
         </nav>

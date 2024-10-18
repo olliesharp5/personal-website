@@ -176,13 +176,13 @@ nav ul li a {
 }
 
 .content-container {
-  position: relative; /* Allow smooth animations */
+  position: relative; 
   top: 0; /* Start at the top of the page */
-  padding-top: 80px; /* Adjust this based on your navbar height */
-  width: 100%; /* Ensure full width */
-  min-height: 100vh; /* Ensure full height for content */
-  box-sizing: border-box; /* Include padding in the total width/height */
-  overflow-x: hidden; /* Hide horizontal overflow during animations */
+  padding-top: 10px;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 

@@ -18,6 +18,17 @@ const navVariants = {
   })
 };
 
+//Handles the download CV link
+const downloadCV = () => {
+  const link = document.createElement('a');
+  link.href = '/path/to/your/cv.pdf';
+  link.download = 'OliverSharp_CV.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
 const AnimatedRoutes = ({ navItems }) => {
   const location = useLocation();
   const prevIndexRef = useRef(0); // Track the previous page index using a ref
@@ -104,32 +115,38 @@ const App = () => {
           customBurgerIcon={false}  // Remove default burger icon
         >
           {navItems.map((item) => (
-            <Link to={item.path} key={item.name} onClick={closeMenu}>
-              {item.name}
-            </Link>
+            item.isDownload ? (
+              // Render a button that triggers the CV download programmatically in the minimized menu
+              <button className="cv-button bm-item" onClick={downloadCV} key={item.name}>
+                {item.name}
+              </button>
+            ) : (
+              <Link to={item.path} key={item.name} onClick={closeMenu}>
+                {item.name}
+              </Link>
+            )
           ))}
         </Menu>
+
 
         {/* Desktop navbar */}
         <nav className="desktop-nav">
           <ul>
             {navItems.map((item, index) => (
               <motion.li
-              key={item.name}
-              initial="hidden"
-              animate="visible"
-              custom={index}
-              variants={navVariants}
-            >
-              {item.isDownload ? (
-                // Render a button for the CV download
-                <a href="/path/to/your/cv.pdf" download="OliverSharp_CV.pdf">
-                  <button className="cv-button">Download my CV</button>
-                </a>
-              ) : (
-                <Link to={item.path}>{item.name}</Link>
-              )}
-            </motion.li>
+                key={item.name}
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                variants={navVariants}
+              >
+                {item.isDownload ? (
+                  // Render a button that triggers the CV download programmatically
+                  <button className="cv-button" onClick={downloadCV}>Download my CV</button>
+                ) : (
+                  <Link to={item.path}>{item.name}</Link>
+                )}
+              </motion.li>
             ))}
           </ul>
         </nav>

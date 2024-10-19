@@ -51,6 +51,7 @@ nav ul li {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  bottom: 9px;
 }
 
 .cv-button:hover {

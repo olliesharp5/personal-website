@@ -1,13 +1,44 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Home = () => (
-  <div className="content">
-    <h1>Oliver Sharp</h1>
-    <h2>Full Stack Software Developer</h2>
-    <h4>Welcome to my personal website! I'm Oliver Sharp, a Junior Full Stack Software Developer with a passion for creating impactful digital solutions. After earning my Diploma in Full Stack Software Development from the Code Institute, I transitioned from a successful career in fintech business operations, where I honed my problem-solving, communication, and project management skills.</h4>
-    <h4>Here, you’ll find my portfolio of projects, showcasing my expertise in HTML, CSS, JavaScript, Python, Django, React, and more. I’m excited to take on new challenges and contribute to innovative teams, aiming to build a career in software development that bridges the gap between technology and business success.</h4>
-    <h4>Feel free to explore my work, learn more about my journey, and get in touch for collaborations or opportunities.</h4>
-  </div>
+  <motion.div 
+    className="hero-section"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    <motion.div 
+      className="hero-content"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
+    >
+      <motion.h1
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.7, duration: 1 }}
+      >
+        Oliver Sharp
+      </motion.h1>
+      
+      <motion.h2
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+      >
+        Full Stack Software Developer
+      </motion.h2>
+      
+      <motion.p
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.3, duration: 1 }}
+      >
+        Welcome to my personal website! I'm Oliver Sharp, a Junior Full Stack Software Developer with a passion for creating impactful digital solutions.
+      </motion.p>
+    </motion.div>
+  </motion.div>
 );
 
 export default Home;

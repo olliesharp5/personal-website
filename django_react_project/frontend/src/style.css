@@ -39,9 +39,22 @@ overflow-x: hidden;
 overflow-y: auto;
 }
 
-
-h1, h2 {
+h1 {
+  font-size: 4em;
+  margin-bottom: 0.3em;
   color: #ffffff;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 1.2em;
+  color: #f0f0f0;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-bottom: 2em;
 }
 
 /*    STANDARD NAV STYLES    */
@@ -220,6 +233,34 @@ nav ul li a:hover::after {
 
 .bm-item.cv-button:hover {
   background-color: #333;
+}
+
+/*   HOME STYLES    */
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 400% 400%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  background-size: 200% 200%;
+  animation: background-pan 20s infinite linear;
+}
+
+/* Background pan */
+@keyframes background-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  max-width: 800px;
 }
 
 /*     CONTACT FORM STYLING     */

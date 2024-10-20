@@ -20,6 +20,30 @@ body {
     text-align: center;
 }
 
+/* General styling for content */
+.content {
+  color: #fff;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.content-container {
+position: relative; 
+top: 0; /* Start at the top of the page */
+padding-top: 5px;
+width: 100%;
+min-height: 100vh;
+box-sizing: border-box;
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+
+h1, h2 {
+  color: #ffffff;
+}
+
 /*    STANDARD NAV STYLES    */
 nav {
   background-color: #000;
@@ -196,38 +220,6 @@ nav ul li a:hover::after {
 
 .bm-item.cv-button:hover {
   background-color: #333;
-}
-
-/* Exclude the cv-button from anchor hover styles */
-nav ul li a.cv-button-wrapper:hover::before,
-nav ul li a.cv-button-wrapper:hover {
-  visibility: hidden;
-  color: #fff; /* No hover effect */
-}
-
-/* General styling for content */
-.content {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    max-width: 800px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.content-container {
-  position: relative; 
-  top: 0; /* Start at the top of the page */
-  padding-top: 10px;
-  width: 100%;
-  min-height: 100vh;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-
-h1, h2 {
-    color: #333;
 }
 
 /*     CONTACT FORM STYLING     */

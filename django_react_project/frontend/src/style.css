@@ -44,8 +44,8 @@ nav ul li {
 
 /* Button styling for the CV button */
 .cv-button {
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #1b1b1b;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -58,7 +58,6 @@ nav ul li {
   background-color: #333;
 }
 
-/* Ensure hover effects are applied only to anchor links, not buttons inside */
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -69,7 +68,7 @@ nav ul li a {
 }
 
 /* Hover effect: underline for links */
-nav ul li a:not(.cv-button)::before {
+nav ul li a::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -82,18 +81,18 @@ nav ul li a:not(.cv-button)::before {
   transition: all 0.3s ease-in-out;
 }
 
-nav ul li a:not(.cv-button):hover::before {
+nav ul li a:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
 
 /* Hover effect: change text color */
-nav ul li a:not(.cv-button):hover {
+nav ul li a:hover {
   color: #ddd;
 }
 
 /* Hover effect: dot above the link */
-nav ul li a:not(.cv-button)::after {
+nav ul li a::after {
   content: '';
   position: absolute;
   width: 5px;
@@ -107,7 +106,7 @@ nav ul li a:not(.cv-button)::after {
   transition: all 0.3s ease-in-out;
 }
 
-nav ul li a:not(.cv-button):hover::after {
+nav ul li a:hover::after {
   opacity: 1;
   top: -10px;
 }
@@ -517,45 +516,38 @@ button:disabled {
 }
 
 /*     SKILLS STYLES     */
-.skills-container {
-  display: flex;
-  flex-direction: column;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
 }
 
 .skill-item {
   display: flex;
   flex-direction: column;
-  background: #222;
-  padding: 15px;
-  border-radius: 8px;
+  align-items: center;
   color: white;
 }
 
-.skill-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.skill-chart-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 
-.skill-icon {
+.skill-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
+  z-index: 1;
 }
 
-.skill-bar {
-  background: #444;
-  height: 10px;
-  border-radius: 5px;
+.skill-name {
   margin-top: 10px;
-  position: relative;
-}
-
-.skill-bar span {
-  position: absolute;
-  right: 10px;
-  top: -25px;
-  color: white;
+  font-size: 16px;
 }
 
 /*   FOOTER STYLES   */
@@ -610,4 +602,10 @@ footer p {
 
 .powered-by img:hover {
   transform: scale(1.1);
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+
 }

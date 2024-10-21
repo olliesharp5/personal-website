@@ -110,7 +110,7 @@ const App = () => {
         >
           {navItems.map((item, index) => (
             item.isDownload ? (
-              <button className="bm-item cv-button" onClick={downloadCV} key={item.name}>
+              <button className="bm-item cv-button-min" onClick={downloadCV} key={item.name}>
                 {item.name}
               </button>
             ) : (

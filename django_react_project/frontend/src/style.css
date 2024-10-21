@@ -52,7 +52,7 @@ p {
 
 /***********************************   STANDARD NAV STYLES    ***********************************/
 nav {
-  background-color: #000;
+  background-color: #000; /* Keep the nav background black */
   padding: 20px 10px;
   position: relative;
 }
@@ -72,32 +72,31 @@ nav ul li {
   padding-top: 10px;
 }
 
-/* Button styling for the CV button */
-.cv-button {
-  background-color: #ffffff;
-  color: #1b1b1b;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  bottom: 9px;
-}
-
-.cv-button:hover {
-  background-color: #333;
-}
-
+/* Apply animated text color using background-clip */
 nav ul li a {
-  color: #fff;
-  text-decoration: none;
+  color: transparent; /* Text is transparent to show the background */
   font-weight: bold;
   font-size: 18px;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease; /* Transition for smooth growth on hover */
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: background-pan 20s infinite linear;
+  display: inline-block; /* Important for scaling effect */
 }
 
-/* Hover effect: underline for links */
+/* Hover effect: text grows slightly and the underline & dot show */
+nav ul li a:hover {
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: scale(1.1); /* Text grows on hover */
+}
+
+/* Hover effect: underline for links (also transparent to reflect background) */
 nav ul li a::before {
   content: '';
   position: absolute;
@@ -105,7 +104,8 @@ nav ul li a::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #fff;
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b); /* Same background as text */
+  background-size: 1000% 1000%;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
@@ -114,20 +114,23 @@ nav ul li a::before {
 nav ul li a:hover::before {
   visibility: visible;
   transform: scaleX(1);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* Hover effect: change text color */
 nav ul li a:hover {
-  color: #ddd;
+  color: transparent; /* Keep text transparent */
 }
 
-/* Hover effect: dot above the link */
+/* Hover effect: dot above the link (also transparent to reflect background) */
 nav ul li a::after {
   content: '';
   position: absolute;
   width: 5px;
   height: 5px;
-  background-color: #fff;
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b); /* Same background as text */
+  background-size: 1000% 1000%;
   top: -5px;
   left: 50%;
   transform: translateX(-50%);
@@ -139,14 +142,17 @@ nav ul li a::after {
 nav ul li a:hover::after {
   opacity: 1;
   top: -10px;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes background-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /***********************************   COMPACT NAV STYLES    ***********************************/
-/* Burger menu customizations */
-.bm-menu-wrap {
-  overflow-y: hidden;
-}
-
 /* Ensure the default burger button is visible */
 .bm-burger-button {
   position: fixed;
@@ -160,6 +166,7 @@ nav ul li a:hover::after {
   background: #000;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+  overflow-y: hidden !important;
 }
 
 .bm-item {
@@ -174,7 +181,7 @@ nav ul li a:hover::after {
 }
 
 /* Styling for CV button in compact nav */
-.bm-item.cv-button {
+.bm-item {
   background-color: #000;
   color: #fff;
   padding: 10px 20px;
@@ -184,6 +191,11 @@ nav ul li a:hover::after {
   text-align: center;
   display: block;
   transition: background-color 0.3s;
+}
+
+.cv-button-min {
+  margin: 30px;
+  bottom: 2px;
 }
 
 .bm-item.cv-button:hover {
@@ -223,7 +235,7 @@ nav ul li a:hover::after {
 .hero-section {
   background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
   background-size: 1000% 1000%;
-  animation: background-pan 20s infinite linear !important;
+  animation: background-pan 50s infinite linear !important;
 }
 
 .hero-section.scrolled {

@@ -7,11 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('images/background_image.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    
     overflow-x: hidden;
 }
 
@@ -235,31 +231,59 @@ nav ul li a:hover::after {
 
 
 /***********************************   HOME STYLES    ***********************************/
-/* Hero Section */
-.hero-section {
-  height: 100vh;
-  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
-  background-size: 400% 400%;
+/* Force background to ensure it's visible */
+.hero-section, .about-section {
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  color: white;
-  text-align: center;
-  padding: 0 20px;
-  background-size: 200% 200%;
-  animation: background-pan 20s infinite linear;
+  overflow: hidden;
 }
 
-/* Background pan */
+/* Hero Section with Animated Background */
+.hero-section {
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 1000% 1000%;
+  animation: background-pan 20s infinite linear !important;
+}
+
+.hero-section.scrolled {
+  background: linear-gradient(100deg, #2e2e2e, #3b3b3b, #4a4a4a, #3b3b3b, #2e2e2e);
+  animation: background-pan-dark 50s infinite linear !important;
+}
+
 @keyframes background-pan {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.hero-content {
-  max-width: 800px;
+@keyframes background-pan-dark {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* About Section */
+.about-section {
+  background-color: #000;
+  color: white;
+  padding: 100px 20px;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 /***********************************   CONTACT STYLES    ***********************************/

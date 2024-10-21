@@ -8,7 +8,19 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import './style.css';
 
+// Handles the download CV link
+const downloadCV = () => {
+  const link = document.createElement('a');
+  link.href = '/path/to/your/cv.pdf';  // Replace with actual path to your CV
+  link.download = 'OliverSharp_CV.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+// Animation for nav links
 const navVariants = {
   hidden: { opacity: 0, y: -20 },
   visible: (i) => ({
@@ -18,30 +30,16 @@ const navVariants = {
   })
 };
 
-//Handles the download CV link
-const downloadCV = () => {
-  const link = document.createElement('a');
-  link.href = '/path/to/your/cv.pdf';
-  link.download = 'OliverSharp_CV.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
-
-
+// Animated routes logic
 const AnimatedRoutes = ({ navItems }) => {
   const location = useLocation();
-  const prevIndexRef = useRef(0); // Track the previous page index using a ref
-  const prevPathRef = useRef(location.pathname); // Track the previous path using a ref
+  const prevIndexRef = useRef(0);
+  const prevPathRef = useRef(location.pathname);
   const currentPath = location.pathname;
 
-  // Find the current and target page indices
   const currentIndex = navItems.findIndex(item => item.path === currentPath);
-
-  // Determine the direction of the animation (calculate only when path changes)
   const direction = currentIndex > prevIndexRef.current ? 1 : -1;
 
-  // Update the previous index and path only when the path changes
   useEffect(() => {
     prevIndexRef.current = currentIndex;
     prevPathRef.current = currentPath;
@@ -50,12 +48,12 @@ const AnimatedRoutes = ({ navItems }) => {
   const pageVariants = {
     initial: (direction) => ({
       opacity: 0,
-      x: direction > 0 ? '100%' : '-100%' // Enter from right if moving forward, from left if moving backward
+      x: direction > 0 ? '100%' : '-100%'
     }),
-    animate: { opacity: 1, x: 0 }, // Fully visible at center
+    animate: { opacity: 1, x: 0 },
     exit: (direction) => ({
       opacity: 0,
-      x: direction > 0 ? '-100%' : '100%', // Exit to left if moving forward, right if moving backward
+      x: direction > 0 ? '-100%' : '100%',
       transition: { duration: 0.5 }
     })
   };
@@ -71,7 +69,7 @@ const AnimatedRoutes = ({ navItems }) => {
           exit="exit"
           variants={pageVariants}
           transition={{ duration: 0.5 }}
-          style={{ position: 'absolute', width: '100%' }}
+          style={{ width: '100%' }}
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
@@ -87,6 +85,11 @@ const AnimatedRoutes = ({ navItems }) => {
 };
 
 const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu when a link is clicked
+  const closeMenu = () => setMenuOpen(false);
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
@@ -96,40 +99,29 @@ const App = () => {
     { name: "Download CV", path: "/cv", isDownload: true }
   ];
 
-  const [isOpen, setIsOpen] = useState(false); // State to handle burger menu
-
-  const closeMenu = () => setIsOpen(false);
-
   return (
     <Router>
       <div className="App">
-        {/* Custom "Menu" button for small screens */}
-        <div className="custom-menu-button" onClick={() => setIsOpen(!isOpen)}>
-          Menu
-        </div>
-
-        {/* Burger menu for mobile */}
+        {/* Burger menu for smaller devices */}
         <Menu
-          isOpen={isOpen}
-          onStateChange={(state) => setIsOpen(state.isOpen)}
-          customBurgerIcon={false}  // Remove default burger icon
+          isOpen={menuOpen}
+          onStateChange={(state) => setMenuOpen(state.isOpen)}
+          width={'250px'}
         >
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             item.isDownload ? (
-              // Render a button that triggers the CV download programmatically in the minimized menu
-              <button className="cv-button bm-item" onClick={downloadCV} key={item.name}>
+              <button className="bm-item cv-button" onClick={downloadCV} key={item.name}>
                 {item.name}
               </button>
             ) : (
-              <Link to={item.path} key={item.name} onClick={closeMenu}>
+              <Link to={item.path} key={index} onClick={closeMenu} className="bm-item">
                 {item.name}
               </Link>
             )
           ))}
         </Menu>
 
-
-        {/* Desktop navbar */}
+        {/* Desktop navbar with your regular styles */}
         <nav className="desktop-nav">
           <ul>
             {navItems.map((item, index) => (
@@ -141,7 +133,6 @@ const App = () => {
                 variants={navVariants}
               >
                 {item.isDownload ? (
-                  // Render a button that triggers the CV download programmatically
                   <button className="cv-button" onClick={downloadCV}>Download my CV</button>
                 ) : (
                   <Link to={item.path}>{item.name}</Link>
@@ -151,9 +142,10 @@ const App = () => {
           </ul>
         </nav>
 
-        {/* Render animated routes with swipe animations */}
+        {/* Render animated routes */}
         <AnimatedRoutes navItems={navItems} />
 
+        {/* Footer */}
         <Footer />
       </div>
     </Router>

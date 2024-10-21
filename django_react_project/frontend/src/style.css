@@ -7,8 +7,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .App {
@@ -28,10 +28,8 @@ body {
 position: relative; 
 top: 0; /* Start at the top of the page */
 width: 100%;
-min-height: 100vh;
+min-height: 83vh;
 box-sizing: border-box;
-overflow-x: hidden;
-overflow-y: auto;
 }
 
 h1 {
@@ -71,6 +69,7 @@ nav ul {
 nav ul li {
   display: inline;
   position: relative;
+  padding-top: 10px;
 }
 
 /* Button styling for the CV button */
@@ -142,57 +141,19 @@ nav ul li a:hover::after {
   top: -10px;
 }
 
-/* Keyframes for fade-in animation (applied to both a and cv-button if needed) */
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
 /***********************************   COMPACT NAV STYLES    ***********************************/
-.custom-menu-button {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 999; /* Ensure it appears above other content */
-  display: none; /* Hide by default */
-}
-
-/* Show "Menu" button on small screens */
-@media (max-width: 768px) {
-  .custom-menu-button {
-    display: block;
-  }
-}
-
-/* Hide desktop nav on small screens */
-.desktop-nav {
-  display: none;
-}
-
-/* Show desktop nav on larger screens */
-@media (min-width: 769px) {
-  .desktop-nav {
-    display: block;
-  }
-}
-
 /* Burger menu customizations */
+.bm-menu-wrap {
+  overflow-y: hidden;
+}
+
+/* Ensure the default burger button is visible */
 .bm-burger-button {
-  display: none;
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
 }
 
 .bm-menu {
@@ -227,6 +188,23 @@ nav ul li a:hover::after {
 
 .bm-item.cv-button:hover {
   background-color: #333;
+}
+
+.bm-burger-bars {
+  background-color: #000000;
+}
+
+/***********************************   RESPONSIVE NAV STYLES    ***********************************/
+@media (min-width: 769px) {
+  .bm-burger-button {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
 }
 
 
@@ -613,7 +591,7 @@ footer {
   padding: 20px;
   text-align: center;
   width: 100%;
-  bottom: 0;
+  
   left: 0;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Montserrat', sans-serif;
@@ -625,6 +603,7 @@ footer {
   padding-right: 20px;
   padding-left: 20px;
   box-sizing: border-box;
+
 }
 
 /* Footer main text */

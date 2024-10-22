@@ -204,11 +204,6 @@ nav ul li a:hover {
   animation: background-pan 50s infinite linear !important;
 }
 
-.hero-section.scrolled {
-  background: linear-gradient(100deg, #2e2e2e, #3b3b3b, #4a4a4a, #3b3b3b, #2e2e2e);
-  animation: background-pan-dark 50s infinite linear !important;
-}
-
 /* About Section */
 .about-section {
   padding: 100px 60px;
@@ -569,17 +564,61 @@ button:disabled {
 }
 
 /***********************************   SKILLS PAGE STYLES    ***********************************/
+.skills-page {
+  padding: 20px;
+}
+
+.skills-page h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.skills-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* For large screens: 3 columns */
+.skills-column {
+  flex: 1 1 30%;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.category-title {
+  position: relative; /* Ensure the pseudo-element is positioned relative to the title */
+  display: inline-block; /* Shrink to fit content width */
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust as needed */
+  width: 100%;
+  height: 4px; /* Thickness of the underline */
+  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 1000% 1000%;
+  animation: background-pan 50s infinite linear;
+}
+
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
+  width: 100px;
+  margin: 15px;
+  text-align: center;
+  color: #fff;
 }
 
 .skill-chart-container {
@@ -592,15 +631,62 @@ button:disabled {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 50px;
+  height: 50px;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  z-index: 1;
 }
 
 .skill-name {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+
+/* Medium screens: 2 columns */
+@media (max-width: 992px) {
+  .skills-column {
+    flex: 1 1 45%;
+  }
+}
+
+/* Small screens: 1 column */
+@media (max-width: 768px) {
+  .skills-column {
+    flex: 1 1 100%;
+    margin: 20px 0;
+  }
+
+  .skills-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Adjust skill-item for small screens */
+@media (max-width: 576px) {
+  .skill-item {
+    width: 80px;
+    margin: 10px;
+  }
+
+  .skill-chart-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skill-icon-overlay {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-name {
+    font-size: 1rem;
+  }
 }
 
 /***********************************   FOOTER STYLES    ***********************************/
@@ -660,12 +746,6 @@ footer p {
 
 /***********************************   KEYFRAMES    ***********************************/
 @keyframes background-pan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes background-pan-dark {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }

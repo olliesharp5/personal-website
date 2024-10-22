@@ -376,7 +376,7 @@ button:disabled {
 
 .project-card {
   position: relative;
-  background: #2e2e2e;
+  background: #000000;
   color: #fff;
   padding: 15px;
   border-radius: 8px;
@@ -406,7 +406,6 @@ button:disabled {
   transform: translateX(-50%) translateY(10px);
   font-size: 24px;
   opacity: 0;
-  /* Initially hidden */
   transition: opacity 0.3s ease, transform 0.3s ease;
   background: linear-gradient(160deg,
       #ff6b6b 0%,
@@ -435,7 +434,6 @@ button:disabled {
 
 /* Hover Effect for Arrow */
 .expand-arrow:hover {
-  /* Keep color as is since it's a gradient */
   transform: translateX(-50%) translateY(0) scale(1.1);
   cursor: pointer;
 }
@@ -563,36 +561,11 @@ button:disabled {
   border-radius: 8px;
 }
 
-.slick-dots li button:before {
-  color: #fff;
-}
-
-.slick-arrow {
-  color: #000;
-}
-
 .slick-prev,
 .slick-next {
-  font-size: 30px !important;
-  width: 50px !important;
-  height: 50px !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  color: white !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  z-index: 1000 !important;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  content: '' !important;
-}
-
-.slick-prev:hover,
-.slick-next:hover {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  width: 40px;
+  height: 40px;
+  z-index: 1000;
 }
 
 .slick-prev {

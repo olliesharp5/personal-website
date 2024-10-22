@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Parallax } from 'react-parallax';
+import placeholderImage from '../images/placeholder-image.jpg';
 
 const Home = () => {
 
@@ -55,10 +56,10 @@ const Home = () => {
         <div className="about-content">
           {/* Parallax Image */}
           <Parallax
-            strength={200}
+            strength={500}
             className="about-image-parallax"
             renderLayer={(percentage) => {
-              const scale = 0.8 + percentage * 0.2;
+              const scale = 0.8 + percentage * 0.3;
               return (
                 <div
                   className="about-image"
@@ -67,7 +68,7 @@ const Home = () => {
                     transition: 'transform 0.1s ease-out',
                   }}
                 >
-                  <img src="./images/placeholder-image.jpg" alt="About Me" />
+                  <img src={placeholderImage} alt="About Me" />
                 </div>
               );
             }}

@@ -9,6 +9,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     overflow-y: scroll;
+    background-color: #000;
 }
 
 .App {
@@ -72,88 +73,42 @@ nav ul li {
   padding-top: 10px;
 }
 
-/* Apply animated text color using background-clip */
 nav ul li a {
   color: transparent; /* Text is transparent to show the background */
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   position: relative;
-  transition: all 0.3s ease; /* Transition for smooth growth on hover */
+  transition: 0.4s ease;
   background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
   background-size: 1000% 1000%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: background-pan 20s infinite linear;
-  display: inline-block; /* Important for scaling effect */
+  animation: background-pan 50s infinite linear;
+  display: inline-block;
 }
 
-/* Hover effect: text grows slightly and the underline & dot show */
 nav ul li a:hover {
-  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
-  background-size: 1000% 1000%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transform: scale(1.1); /* Text grows on hover */
+  background-color: transparent !important;
+  color: #fff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  transform: scale(1.1);
 }
 
-/* Hover effect: underline for links (also transparent to reflect background) */
-nav ul li a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b); /* Same background as text */
-  background-size: 1000% 1000%;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out;
+.cv-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-nav ul li a:hover::before {
-  visibility: visible;
-  transform: scaleX(1);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-/* Hover effect: change text color */
-nav ul li a:hover {
-  color: transparent; /* Keep text transparent */
-}
-
-/* Hover effect: dot above the link (also transparent to reflect background) */
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: linear-gradient(270deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b); /* Same background as text */
-  background-size: 1000% 1000%;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-  opacity: 1;
-  top: -10px;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-@keyframes background-pan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.cv-button:hover {
+  background-color: #333;
 }
 
 /***********************************   COMPACT NAV STYLES    ***********************************/
-/* Ensure the default burger button is visible */
 .bm-burger-button {
   position: fixed;
   width: 36px;
@@ -241,18 +196,6 @@ nav ul li a:hover::after {
 .hero-section.scrolled {
   background: linear-gradient(100deg, #2e2e2e, #3b3b3b, #4a4a4a, #3b3b3b, #2e2e2e);
   animation: background-pan-dark 50s infinite linear !important;
-}
-
-@keyframes background-pan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes background-pan-dark {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* About Section */
@@ -651,6 +594,18 @@ footer p {
   transform: scale(1.1);
 }
 
+/***********************************   KEYFRAMES    ***********************************/
+@keyframes background-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes background-pan-dark {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /***********************************   MEDIA QUERIES    ***********************************/
 @media (max-width: 768px) {

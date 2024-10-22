@@ -25,17 +25,17 @@ const AnimatedRoutes = ({ navItems }) => {
     initial: direction => ({
       opacity: 0,
       x: direction > 0 ? '100%' : '-100%',
-      y: 0, // Ensure vertical position doesn't change
+      y: 0,
     }),
     animate: {
       opacity: 1,
       x: 0,
-      y: 0, // Ensure vertical position doesn't change
+      y: 0,
     },
     exit: direction => ({
       opacity: 0,
       x: direction > 0 ? '-100%' : '100%',
-      y: 0, // Ensure vertical position doesn't change
+      y: 0,
       transition: { duration: 0.5 },
     }),
   };

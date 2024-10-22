@@ -5,20 +5,25 @@ from django.utils.text import slugify
 
 
 class Skill(models.Model):
+    CATEGORY_CHOICES = [
+        ('code', 'Code'),
+        ('toolbox', 'Toolbox'),
+        ('soft', 'Soft'),
+    ]
+
     name = models.CharField(max_length=100)
     proficiency = models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)],
         help_text="Proficiency level from 1 to 10"
     )
     icon = models.ImageField(upload_to='skill', blank=True, null=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, null=True)
 
     def save(self, *args, **kwargs):
         if self.icon:
             # Replace spaces in the filename with underscores
             self.icon.name = self.icon.name.replace(" ", "_")
-        print(f"Attempting to save icon: {self.icon}")
         super().save(*args, **kwargs)
-        print(f"Icon saved at URL: {self.icon.url}")
 
     def __str__(self):
         return self.name

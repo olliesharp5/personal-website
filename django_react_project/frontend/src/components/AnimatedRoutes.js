@@ -25,19 +25,27 @@ const AnimatedRoutes = ({ navItems }) => {
     initial: direction => ({
       opacity: 0,
       x: direction > 0 ? '100%' : '-100%',
+      y: 0, // Ensure vertical position doesn't change
     }),
-    animate: { opacity: 1, x: 0 },
+    animate: {
+      opacity: 1,
+      x: 0,
+      y: 0, // Ensure vertical position doesn't change
+    },
     exit: direction => ({
       opacity: 0,
       x: direction > 0 ? '-100%' : '100%',
+      y: 0, // Ensure vertical position doesn't change
       transition: { duration: 0.5 },
     }),
   };
 
   return (
-    <div className="content-container" style={{ position: 'relative' }}>
+    <div className="content-container">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
+          layout
+          className="animated-page"
           key={location.pathname}
           custom={direction}
           initial="initial"

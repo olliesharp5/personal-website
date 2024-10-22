@@ -227,6 +227,80 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-top: -15%;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Left Side: Text */
+.hero-text {
+  flex: 1;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin: 10px 0 0 0;
+}
+
+/* Right Side: Profile Image */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text,
+  .hero-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+  }
+}
+
 /* About Section */
 .about-section {
   padding: 100px 60px;
@@ -240,26 +314,19 @@ nav ul li a:hover {
   grid-template-rows: 1fr;
   max-width: 1200px;
   margin: 0 auto;
-  height: 500px;
-  /* Adjust as needed */
+  height: 500px; /* Adjust as needed */
   position: relative;
 }
 
-.about-image-parallax {
+.about-image-container {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   align-self: start;
   justify-self: start;
-  transform: translate(-25%, -25%);
+  /* Remove transform if set previously */
 }
 
-.about-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10%;
-}
-
-.about-image img {
+.about-image-container img {
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -270,7 +337,7 @@ nav ul li a:hover {
   grid-row: 1 / 2;
   align-self: end;
   justify-self: end;
-  transform: translate(25%, 25%);
+  /* Remove transform if set previously */
   max-width: 500px;
   color: white;
 }
@@ -288,13 +355,12 @@ nav ul li a:hover {
     height: auto;
   }
 
-  .about-image-parallax,
+  .about-image-container,
   .about-text {
     grid-column: 1 / 2;
     grid-row: auto;
     align-self: center;
     justify-self: center;
-    transform: none;
   }
 
   .about-text {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { slide as Menu } from 'react-burger-menu';
+import { FaDownload } from 'react-icons/fa';
 import downloadCV from '../utils/downloadCV';
 
 const Navbar = ({ navItems, menuOpen, setMenuOpen, closeMenu, navVariants }) => {
@@ -19,7 +20,7 @@ const Navbar = ({ navItems, menuOpen, setMenuOpen, closeMenu, navVariants }) => 
               className="bm-item cv-button-min"
               onClick={downloadCV}
               key={item.name}
-            >
+            ><FaDownload />
               {item.name}
             </button>
           ) : (
@@ -48,7 +49,7 @@ const Navbar = ({ navItems, menuOpen, setMenuOpen, closeMenu, navVariants }) => 
             >
               {item.isDownload ? (
                 <button className="cv-button" onClick={downloadCV}>
-                  {item.name}
+                  <FaDownload /> {item.name}
                 </button>
               ) : (
                 <Link to={item.path}>{item.name}</Link>

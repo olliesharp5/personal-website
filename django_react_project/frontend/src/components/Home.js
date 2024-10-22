@@ -53,7 +53,7 @@ const Home = () => {
 
       {/* About Me Section */}
       <div className="about-section">
-        <div className="about-content">
+        <div className="about-grid">
           {/* Parallax Image */}
           <Parallax
             strength={500}

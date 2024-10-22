@@ -195,7 +195,6 @@ nav ul li a:hover {
 
 
 /***********************************   HOME STYLES    ***********************************/
-/* Force background to ensure it's visible */
 .hero-section,
 .about-section {
   min-height: 70vh;
@@ -208,14 +207,24 @@ nav ul li a:hover {
 
 /* Hero Section with Animated Background */
 .hero-section {
-  background: linear-gradient(160deg,
+  position: relative;
+  background: linear-gradient(
+      160deg,
       #ff6b6b 0%,
       #f94d6a 25%,
       #5630a3 50%,
       #f94d6a 75%,
-      #ff6b6b 100%);
+      #ff6b6b 100%
+  );
   background-size: 300% 300%;
   animation: background-pan 70s infinite linear !important;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  overflow: hidden;
 }
 
 /* About Section */

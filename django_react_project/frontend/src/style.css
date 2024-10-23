@@ -689,12 +689,14 @@ button:disabled {
   bottom: -5px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(160deg,
-      #ff6b6b 0%,
-      #f94d6a 25%,
-      #5630a3 50%,
-      #f94d6a 75%,
-      #ff6b6b 100%);
+  background: linear-gradient(
+    160deg,
+    #ff6b6b 0%,
+    #f94d6a 25%,
+    #5630a3 50%,
+    #f94d6a 75%,
+    #ff6b6b 100%
+  );
   background-size: 300% 300%;
   animation: background-pan 70s infinite linear;
 }
@@ -703,6 +705,7 @@ button:disabled {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .skill-item {
@@ -710,26 +713,82 @@ button:disabled {
   margin: 15px;
   text-align: center;
   color: #fff;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-origin: center;
+  position: relative;
+}
+
+.skill-item.flipped {
+  z-index: 2;
+}
+
+.skill-flip-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  position: relative;
+  transform-origin: center center;
+}
+
+.skill-front,
+.skill-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.skill-back {
+  transform: rotateY(180deg);
 }
 
 .skill-chart-container {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  margin: 0 auto;
+}
+
+.skill-back .skill-chart-container.back {
+  background-color: #000;
+  border-radius: 50%;
+  position: relative;
 }
 
 .skill-icon-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50px;
-  height: 50px;
+  width: 50%;
+  height: 50%;
   transform: translate(-50%, -50%);
+}
+
+.skill-item.flipped .skill-icon-overlay {
+  display: none;
 }
 
 .skill-name {
   margin-top: 10px;
   font-size: 1.1rem;
+}
+
+.skill-item.flipped .skill-name {
+  display: none;
+}
+
+.skill-description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+  width: 80%;
 }
 
 /* Responsive Design */
@@ -763,13 +822,14 @@ button:disabled {
   }
 
   .skill-chart-container {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
   }
 
   .skill-icon-overlay {
-    width: 40px;
-    height: 40px;
+    width: 50%;
+    height: 50%;
   }
 
   .skill-name {

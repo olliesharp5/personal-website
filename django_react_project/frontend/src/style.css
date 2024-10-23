@@ -218,8 +218,8 @@ nav ul li a:hover {
   );
   background-size: 300% 300%;
   animation: background-pan 70s infinite linear !important;
-  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -230,7 +230,7 @@ nav ul li a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  margin-top: -15%;
+  
 }
 
 .hero-grid {
@@ -246,6 +246,7 @@ nav ul li a:hover {
 .hero-text {
   flex: 1;
   color: white;
+  margin-right: 50px;
 }
 
 .hero-text h1 {
@@ -270,7 +271,7 @@ nav ul li a:hover {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid white;
+  border: 5px solid #000;
 }
 
 /* Responsive Design */
@@ -314,7 +315,7 @@ nav ul li a:hover {
   grid-template-rows: 1fr;
   max-width: 1200px;
   margin: 0 auto;
-  height: 500px; /* Adjust as needed */
+  height: 400px;
   position: relative;
 }
 
@@ -323,11 +324,10 @@ nav ul li a:hover {
   grid-row: 1 / 2;
   align-self: start;
   justify-self: start;
-  /* Remove transform if set previously */
 }
 
 .about-image-container img {
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 10px;
 }
@@ -337,13 +337,12 @@ nav ul li a:hover {
   grid-row: 1 / 2;
   align-self: end;
   justify-self: end;
-  /* Remove transform if set previously */
-  max-width: 500px;
+  max-width: 450px;
   color: white;
 }
 
 .about-text p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 

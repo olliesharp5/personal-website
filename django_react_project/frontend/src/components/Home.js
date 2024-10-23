@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import placeholderImage from '../images/placeholder-image.jpg';
 
 const Home = () => {
-  // Hero Section Scroll Animations (existing code)
+  // Hero Section Scroll Animations
   const { scrollY } = useScroll();
   const scale = useTransform(scrollY, [0, 700], [1, 0.8]);
   const y = useTransform(scrollY, [0, 700], [0, -50]);

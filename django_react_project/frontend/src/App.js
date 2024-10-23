@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AnimatedRoutes from './components/AnimatedRoutes';
-
 import Footer from './components/Footer';
 import './style.css';
 

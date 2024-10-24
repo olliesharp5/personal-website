@@ -34,7 +34,7 @@ body {
   top: 0;
   /* Start at the top of the page */
   width: 100%;
-  min-height: 83vh;
+  min-height: 84.5vh;
   box-sizing: border-box;
 }
 
@@ -458,6 +458,7 @@ button:disabled {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 3px solid rgb(65, 65, 65);
 }
 
 .project-preview {
@@ -790,7 +791,6 @@ button:disabled {
   font-size: 10px;
   width: 80%;
 }
-
 /* Responsive Design */
 
 @media (max-width: 992px) {

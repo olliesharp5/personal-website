@@ -44,7 +44,7 @@ const SkillItem = ({ skill, index }) => {
                 className="skill-flip-card"
                 animate={{
                     rotateY: flipped ? 180 : 0,
-                    scale: flipped ? 2.1 : 1,
+                    scale: flipped ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.6 }}
                 style={{

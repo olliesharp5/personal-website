@@ -467,6 +467,17 @@ button:disabled {
   align-items: center;
 }
 
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.completed-date {
+  font-size: 0.9em;
+  color: #cccccc;
+}
+
 .preview-image {
   width: 200px;
   height: 120px;

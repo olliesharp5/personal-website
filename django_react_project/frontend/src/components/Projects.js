@@ -69,7 +69,10 @@ const Projects = () => {
             {/* Minimized View: Only title and image */}
             {selectedProject !== project.id && (
               <div className="project-preview">
-                <motion.h3 layout>{project.title}</motion.h3> {/* Only animate layout for the whole card, not each element */}
+                <div className="project-info">
+                  <motion.h3 layout>{project.title}</motion.h3> {/* Only animate layout for the whole card, not each element */}
+                  <motion.h5 layout className="completed-date">Completed on: {project.completed_date}</motion.h5>
+                </div>
                 {project.project_images.length > 0 && (
                   <motion.img
                     className="preview-image"

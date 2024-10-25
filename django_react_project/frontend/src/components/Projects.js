@@ -143,6 +143,10 @@ const Projects = () => {
                     </Slider>
                   </div>
                 )}
+
+                <div className='completed-expanded'>
+                  Completed on: {project.completed_date}
+                </div>
               </motion.div>
             )}
           </motion.div>

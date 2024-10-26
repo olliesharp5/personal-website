@@ -670,19 +670,18 @@ button:disabled {
 .skills-page h2 {
   text-align: center;
   color: #fff;
-  margin-bottom: 40px;
 }
 
 .skills-columns {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .skills-column {
-  flex: 1 1 30%;
-  margin: 10px;
-  min-width: 250px;
+  flex: 1 1 100%;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .category-title {
@@ -690,7 +689,7 @@ button:disabled {
   display: inline-block;
   color: #fff;
   margin-bottom: 20px;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -721,8 +720,8 @@ button:disabled {
 }
 
 .skill-item {
-  width: 100px;
-  margin: 15px;
+  width: 80px;
+  margin: 10px;
   text-align: center;
   color: #fff;
   cursor: pointer;
@@ -784,7 +783,7 @@ button:disabled {
 
 .skill-name {
   margin-top: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .skill-item.flipped .skill-name {
@@ -802,80 +801,64 @@ button:disabled {
   font-size: 10px;
   width: 80%;
 }
-/* Responsive Design */
 
-@media (max-width: 992px) {
-  .skills-column {
-    flex: 1 1 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-column {
-    flex: 1 1 100%;
-    margin: 20px 0;
-  }
-
-  .skills-columns {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .category-title {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
+/* Larger Screens */
+@media (min-width: 576px) {
   .skill-item {
-    width: 80px;
-    margin: 10px;
-  }
-
-  .skill-chart-container {
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-  }
-
-  .skill-icon-overlay {
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    margin: 15px;
   }
 
   .skill-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .skills-column {
+    flex: 1 1 45%;
+    margin: 10px;
+  }
+
+  .skills-columns {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .category-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .skills-column {
+    flex: 1 1 30%;
+    min-width: 250px;
   }
 }
 
 /***********************************   FOOTER STYLES    ***********************************/
+/* Footer base styling */
 footer {
   background-color: #000;
   color: #fff;
   padding: 20px;
   text-align: center;
-  width: 100%;
-
-  left: 0;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically on small screens */
+  align-items: center;
+  gap: 10px;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 20px;
-  padding-left: 20px;
   box-sizing: border-box;
-
 }
 
-/* Footer main text */
 footer p {
   margin: 0;
   font-size: 16px;
-  text-align: left;
-  flex: 1;
+  text-align: center;
 }
 
 .powered-by {
@@ -883,6 +866,10 @@ footer p {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+}
+
+.powered-by span {
+  margin-right: 5px;
 }
 
 .powered-by img {
@@ -903,6 +890,24 @@ footer p {
   transform: scale(1.1);
 }
 
+/* Larger screens: Row layout */
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    text-align: left;
+    flex: 1;
+  }
+
+  .powered-by {
+    flex-direction: row;
+  }
+}
+
 /***********************************   KEYFRAMES    ***********************************/
 @keyframes background-pan {
   0% {
@@ -915,20 +920,5 @@ footer p {
 
   100% {
     background-position: 0% 50%;
-  }
-}
-
-/***********************************   MEDIA QUERIES    ***********************************/
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5em;
-  }
-
-  h2 {
-    font-size: 1.8em;
-  }
-
-  p {
-    font-size: 1em;
   }
 }

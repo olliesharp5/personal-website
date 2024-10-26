@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import SkillItem from './SkillItem';
+import SkillItem from './skills/SkillItem';
 
 const Skills = () => {
   const [skillsByCategory, setSkillsByCategory] = useState({});

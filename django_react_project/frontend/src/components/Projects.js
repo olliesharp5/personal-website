@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ProjectCard from './ProjectCard';
+import ProjectCard from './projects/ProjectCard';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);

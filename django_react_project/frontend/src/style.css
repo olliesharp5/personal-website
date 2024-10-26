@@ -63,6 +63,30 @@ p {
   margin-bottom: 2em;
 }
 
+.coloured-button {
+  background: linear-gradient(
+      160deg,
+      #ff6b6b 0%,
+      #f94d6a 25%,
+      #5630a3 50%,
+      #f94d6a 75%,
+      #ff6b6b 100%
+  );
+  background-size: 300% 300%;
+  animation: background-pan 70s infinite linear;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.coloured-button:hover {
+  transform: scale(1.05);
+}
+
 /***********************************   STANDARD NAV STYLES    ***********************************/
 nav {
   background-color: #000;
@@ -114,17 +138,7 @@ nav ul li a:hover {
 }
 
 .cv-button {
-  background-color: #000;
-  color: #fff;
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.cv-button:hover {
-  background-color: #333;
 }
 
 /***********************************   COMPACT NAV STYLES    ***********************************/
@@ -414,23 +428,13 @@ textarea:focus {
   outline: none;
 }
 
-button {
+.submit-button {
   padding: 12px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-button:hover {
-  background-color: #777;
 }
 
 button:disabled {
@@ -439,7 +443,6 @@ button:disabled {
 }
 
 .spinner {
-  border: 3px solid rgba(255, 255, 255, 0.3);
   border-top: 3px solid white;
   border-radius: 50%;
   width: 18px;
@@ -564,26 +567,6 @@ button:disabled {
   top: -8px;
   right: 0;
   padding: 10px 20px;
-  background: linear-gradient(160deg,
-      #ff6b6b 0%,
-      #f94d6a 25%,
-      #5630a3 50%,
-      #f94d6a 75%,
-      #ff6b6b 100%);
-  background-size: 300% 300%;
-  animation: background-pan 70s infinite linear;
-  color: white;
-  font-weight: bold;
-  border-radius: 20px;
-  text-decoration: none;
-  transition: background-pan 0.3s ease, color 0.3s ease;
-  /* For Safari */
-  -webkit-background-clip: padding-box;
-  -webkit-text-fill-color: white;
-}
-
-.repo-link:hover {
-  transform: scale(1.05);
 }
 
 .project-description {

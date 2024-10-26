@@ -49,7 +49,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                             href={project.github_link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="repo-link"
+                            className="coloured-button repo-link"
                             onClick={(e) => e.stopPropagation()}
                         >
                             GitHub Repo

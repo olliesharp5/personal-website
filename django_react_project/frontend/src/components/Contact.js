@@ -99,7 +99,7 @@ const Contact = () => {
           />
           {errors.message && <div className="error-message">{errors.message}</div>}
         </div>
-        <button type="submit" disabled={isSubmitting}>
+        <button className='coloured-button submit-button' type="submit" disabled={isSubmitting}>
           {isSubmitting ? <span className="spinner"></span> : "Send"}
         </button>
       </form>

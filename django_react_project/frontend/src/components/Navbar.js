@@ -48,7 +48,7 @@ const Navbar = ({ navItems, menuOpen, setMenuOpen, closeMenu, navVariants }) => 
               variants={navVariants}
             >
               {item.isDownload ? (
-                <button className="cv-button" onClick={downloadCV}>
+                <button className="coloured-button cv-button" onClick={downloadCV}>
                   <FaDownload /> {item.name}
                 </button>
               ) : (

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
@@ -17,25 +17,25 @@ body {
 }
 
 .App {
-  flex: 1;
+  display: flex;
   text-align: center;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 /***********************************   GENERAL CONTENT STYLES    ***********************************/
 .content {
   color: #fff;
   padding: 20px;
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 90%;
 }
 
 .content-container {
   position: relative;
   top: 0;
-  /* Start at the top of the page */
   width: 100%;
-  min-height: 84.5vh;
   box-sizing: border-box;
+  flex: 1;
 }
 
 .animated-page {

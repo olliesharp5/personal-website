@@ -26,15 +26,16 @@ body {
 /***********************************   GENERAL CONTENT STYLES    ***********************************/
 .content {
   color: #fff;
-  padding: 20px;
-  max-width: 90%;
+  padding: 10px;
+  max-width: 98%;
+  margin-top: 50px;
 }
 
 .content-container {
   position: relative;
   top: 0;
   width: 100%;
-  box-sizing: border-box;
+  
   flex: 1;
 }
 
@@ -53,7 +54,6 @@ h1 {
 
 h2 {
   font-size: 2.5em;
-  margin-bottom: 1.2em;
   color: #f0f0f0;
 }
 
@@ -314,7 +314,7 @@ nav ul li a:hover {
   
   /* Hero Section */
   .hero-content {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
   }
 
   .hero-icons svg {
@@ -327,7 +327,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
-    padding: 0 20px;
+    padding: 0 50px;
   }
 
   .hero-text {
@@ -391,7 +391,7 @@ nav ul li a:hover {
 @media (min-width: 1200px) {
   /* Styles for extra-large screens */
   .hero-grid {
-    margin-top: 20%;
+    margin-top: 10%;
   }
 
   .about-image-container img {
@@ -474,16 +474,18 @@ button:disabled {
 }
 
 .project-card {
+  align-items: center;
   position: relative;
   background: #000000;
   color: #fff;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  border-radius: 5px;
   overflow: hidden;
+  height: auto;
   transition: all 0.3s ease;
   border: 3px solid rgb(65, 65, 65);
+  max-width: 600px; /* Consistent max width */
+  
 }
 
 .project-preview {
@@ -507,23 +509,19 @@ button:disabled {
   width: 200px;
   height: 120px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 5px;
+}
+
+/* Expand/Minimize Arrow */
+.expand-arrow-container {
+  margin-top: 10px; /* Separate arrow from main content */
+  text-align: center; /* Center the arrow within its row */
 }
 
 .expand-arrow {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
   font-size: 24px;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  background: linear-gradient(160deg,
-      #ff6b6b 0%,
-      #f94d6a 25%,
-      #5630a3 50%,
-      #f94d6a 75%,
-      #ff6b6b 100%);
+  transition: transform 0.3s ease;
+  background: linear-gradient(160deg, #ff6b6b 0%, #f94d6a 25%, #5630a3 50%, #f94d6a 75%, #ff6b6b 100%);
   background-size: 300% 300%;
   animation: background-pan 70s infinite linear !important;
   background-clip: text;
@@ -531,59 +529,40 @@ button:disabled {
   color: transparent;
 }
 
-/* Show Downward Arrow on Card Hover (Collapsed State) */
-.project-card:hover:not(.expanded) .expand-arrow {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Show Upward Arrow on Hover in Expanded State */
-.project-card.expanded:hover .expand-arrow {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) rotate(180deg);
-}
-
-/* Hover Effect for Arrow */
-.expand-arrow:hover {
-  transform: translateX(-50%) translateY(0) scale(1.1);
-  cursor: pointer;
+/* Rotate arrow when card is expanded */
+.project-card.expanded .expand-arrow {
+  transform: rotate(180deg);
 }
 
 /* Expanded Content */
 .expanded-content {
   margin-top: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 25px;
+  height: auto;
 }
 
 .title-container {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   position: relative;
 }
 
-.title-container h3 {
-  margin: 0 auto;
-}
-
 .repo-link {
-  position: absolute;
-  top: -8px;
-  right: 0;
+  font-size: smaller;
   padding: 10px 20px;
 }
 
 .project-description {
   border: 3px solid rgb(65, 65, 65);
   border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
   margin: 20px 0;
+  font-size: 14px;
 }
 
 .technologies-container {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 10px;
@@ -615,6 +594,7 @@ button:disabled {
   display: inline-block;
   padding: 10px;
   position: relative;
+  text-align: center;
 }
 
 .tech-icon {
@@ -644,12 +624,17 @@ button:disabled {
 /* Slick-carousel styles */
 .image-carousel {
   padding-top: 10px;
+  width: 100%;
+  max-width: 100%; /* Prevent overflow beyond card */
+  margin: 0 auto;
 }
 
 .carousel-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  aspect-ratio: 16/9; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .slick-prev,
@@ -665,6 +650,57 @@ button:disabled {
 
 .slick-next {
   right: 10px !important;
+}
+
+/* Default dot color */
+.slick-dots li button::before {
+  color: #ffffff !important; /* Set your desired color */
+  opacity: 0.5; /* Adjust opacity if needed */
+  font-size: 12px; /* Adjust size if needed */
+}
+
+/* Active dot color */
+.slick-dots .slick-active button::before {
+  color: #fff !important; /* Set your active color */
+  opacity: 1; /* Make active dot fully opaque */
+}
+
+.completed-expanded {
+  margin-top: 30px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+
+  .project-card {
+    max-width: 70%; /* Set desired max width here */
+    margin: 0 auto; /* Center the card within its container */
+  }
+
+  .project-description {
+   font-size: 20px;
+  }
+
+  .expand-arrow {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-card:hover:not(.expanded) .expand-arrow {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .project-card.expanded:hover .expand-arrow {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotate(180deg);
+  }
+
+  .expand-arrow:hover {
+    transform: translateX(-50%) translateY(0) scale(1.1);
+    cursor: pointer;
+  }
 }
 
 /***********************************   SKILLS PAGE STYLES    ***********************************/

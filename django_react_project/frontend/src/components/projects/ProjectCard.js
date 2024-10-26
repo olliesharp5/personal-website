@@ -8,7 +8,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
         onClick={onExpand}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }} // Fade-in effect on card
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
         {/* Minimized View */}
         {!isExpanded && (
@@ -27,10 +27,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
             </div>
         )}
 
-        {/* Downward Arrow */}
-        <div className="expand-arrow">&#x25BC;</div>
-
-        {/* Expanded View with AnimatePresence */}
+        {/* Expanded Content */}
         <AnimatePresence>
             {isExpanded && (
                 <motion.div
@@ -44,7 +41,9 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                     }}
                 >
                     <div className="title-container">
-                        <h3>{project.title}</h3>
+                        <h2>{project.title}</h2>
+                    </div>
+                    <div className='repo-container'>
                         <a
                             href={project.github_link}
                             target="_blank"
@@ -77,6 +76,11 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                 </motion.div>
             )}
         </AnimatePresence>
+
+        {/* Separate Expand Arrow Row */}
+        <div className="expand-arrow-container">
+            <div className="expand-arrow">&#x25BC;</div>
+        </div>
     </motion.div>
 );
 

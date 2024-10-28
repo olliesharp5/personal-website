@@ -88,6 +88,7 @@ p {
 @media (min-width: 768px) {
   .content {
     margin-top: 10px;
+    margin-bottom: 30px;
   }
 }
 
@@ -356,6 +357,10 @@ nav ul li a:hover {
     height: 300px;
   }
 
+  .about-grid {
+    margin-top: 30px;
+  }
+
   .about-image-container img {
     min-width: 500px;
   }
@@ -373,7 +378,7 @@ nav ul li a:hover {
     align-items: flex-start;
     justify-content: space-between;
     max-width: 1200px;
-    margin: 0 auto;
+    
   }
 
   .about-image-container {
@@ -520,13 +525,16 @@ button:disabled {
 
 /* Expand/Minimize Arrow */
 .expand-arrow-container {
-  margin-top: 10px;
+  position: absolute; /* Position it relative to the project card */
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
 }
 
 .expand-arrow {
   font-size: 24px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   background: linear-gradient(160deg, #ff6b6b 0%, #f94d6a 25%, #5630a3 50%, #f94d6a 75%, #ff6b6b 100%);
   background-size: 300% 300%;
   animation: background-pan 70s infinite linear !important;
@@ -679,33 +687,25 @@ button:disabled {
 @media (min-width: 768px) {
 
   .project-card {
-    max-width: 70%; /* Set desired max width here */
-    margin: 0 auto; /* Center the card within its container */
+    min-width: 70%;
+    margin: 0 auto;
   }
 
   .project-description {
-   font-size: 20px;
+   font-size: 15px;
+  }
+
+  .image-carousel {
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   .expand-arrow {
     opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .project-card:hover:not(.expanded) .expand-arrow {
+  .project-card:hover .expand-arrow {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .project-card.expanded:hover .expand-arrow {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) rotate(180deg);
-  }
-
-  .expand-arrow:hover {
-    transform: translateX(-50%) translateY(0) scale(1.1);
-    cursor: pointer;
   }
 }
 
@@ -941,6 +941,7 @@ footer p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
   }
 
   footer p {

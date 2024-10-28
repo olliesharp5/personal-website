@@ -8,6 +8,8 @@ const Contact = () => (
     <h1>Contact me!</h1>
     <h4>
       Interested in working together or have questions? Feel free to reach out via the form below.
+    </h4>
+    <h4>
       I'm open to new opportunities and collaborations, and I'd love to hear from you.
     </h4>
     <ContactForm />

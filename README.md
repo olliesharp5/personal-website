@@ -8,9 +8,9 @@ This repository contains the code for my personal portfolio website, built with 
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Live Link](#live-link)
 - [User Stories](#user-stories)
 - [Database Structure](#database-structure)
+- [Libraries](#libraries)
 - [API Endpoints](#api-endpoints)
 - [Bugs and Fixes](#bugs-and-fixes)
 - [Credits](#credits)
@@ -54,10 +54,6 @@ This project is a personal portfolio website to showcase my skills, experience, 
   - React-Burger-Menu for mobile navigation
   - Axios for API calls
   - Azure for deployment and media storage
-
-## Live Link
-You can visit the live website here:
-[Portfolio Website](#) <!-- Add the live link once the site is deployed -->
 
 ## User Stories
 1. **As a visitor,** I want to view a gallery of projects with their details, so I can see the developer's work.
@@ -122,6 +118,43 @@ You can visit the live website here:
 | `subject`     | String (200)           | Subject of the message                           |
 | `message`     | Text                   | Content of the message                           |
 | `created_at`  | Datetime               | Timestamp of when the message was sent           |
+
+## Libraries <hr>
+
+### Frontend
+
+| Library               | Version   | Description                                                                 |
+|-----------------------|-----------|-----------------------------------------------------------------------------|
+| `framer-motion`       | ^7.0.0    | A library for animations and gestures in React                              |
+| `react`               | ^18.0.0   | JavaScript library for building user interfaces                             |
+| `react-burger-menu`   | ^3.0.0    | Library for an animated side menu component in React                        |
+| `react-router-dom`    | ^6.3.0    | For routing between pages in a single-page application                      |
+| `axios`               | ^1.4.0    | For making API requests from the frontend to the backend                    |
+
+### Backend
+
+| Library                    | Version   | Description                                                                 |
+|----------------------------|-----------|-----------------------------------------------------------------------------|
+| `asgiref`                  | 3.8.1     | ASGI reference implementation for handling async requests in Django         |
+| `django`                   | 5.1.1     | High-level Python web framework for rapid development                       |
+| `django-cors-headers`      | 4.4.0     | Handles Cross-Origin Resource Sharing (CORS) in Django                      |
+| `djangorestframework`      | 3.15.2    | Toolkit for building Web APIs in Django                                     |
+| `django-storages`          | 1.14.4    | Custom storage backends for Django, used here with Azure Blob Storage       |
+| `psycopg2`                 | 2.9.9     | PostgreSQL database adapter for Django                                      |
+| `sqlparse`                 | 0.5.1     | SQL parser for Django ORM                                                   |
+| `python-dotenv`            | 1.0.1     | Loads environment variables from `.env` file for configuration              |
+
+### Others
+
+| Library               | Version   | Description                                                                 |
+|-----------------------|-----------|-----------------------------------------------------------------------------|
+| `azure-core`          | 1.31.0    | Core library for Azure SDK                                                  |
+| `azure-storage-blob`  | 12.23.1   | Azure Blob Storage client library                                           |
+| `certifi`             | 2024.8.30 | Certificate management for secure HTTP requests                             |
+| `cryptography`        | 43.0.1    | Provides cryptographic recipes and primitives                               |
+| `pillow`              | 10.4.0    | Python Imaging Library, adds image processing capabilities                  |
+| `requests`            | 2.32.3    | HTTP library for Python, used for making API requests                       |
+
 
 ## API Endpoints
 - `/api/projects/` – Retrieve all projects

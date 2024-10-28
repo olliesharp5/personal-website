@@ -3,6 +3,8 @@
 This repository contains the code for my personal portfolio website, built with a React frontend, Django REST API backend, and Azure Blob Storage for media files.
 
 ## Table of Contents
+- [Demo](#demo)
+- [UX](#ux)
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -15,6 +17,24 @@ This repository contains the code for my personal portfolio website, built with 
 - [Target Audience](#target-audience)
 - [Future Improvements](#future-improvements)
 - [License](#license)
+
+## Demo <hr>
+
+![Website look on different devices](./assets/readme_assets/responsive_design.png)
+
+### A live demo to the website can be found [here](https://green-thumb1-5e1e889069e1.herokuapp.com/)
+
+## UX <hr>
+
+This website is designed primarily for prospective employers, clients, and collaborators who want to learn more about my background, projects, and skills. The aim is to create a visually engaging and user-friendly portfolio to showcase my experience and provide easy access to my work and contact information.
+
+- **Prospective Employers**: Employers can explore my experience, skills, and projects to evaluate my qualifications for job opportunities. They can see relevant work, technologies used, and project descriptions, helping them make an informed hiring decision.
+
+- **Potential Clients**: Individuals or businesses looking for web development services can view my portfolio to assess my skills and past projects. They can easily reach out through the contact form for inquiries or project proposals.
+
+- **Collaborators**: Fellow developers or other professionals interested in collaboration can gain insights into my areas of expertise and past projects. This section provides an overview of the technologies I work with and the
+
+The UX design focuses on clear navigation, responsive design, and dynamic content presentation. By utilizing animations, parallax effects, and a modern layout, this website provides an engaging experience that reflects my personal brand while meeting the needs of my target audience.
 
 ## Project Overview
 This project is a personal portfolio website to showcase my skills, experience, and projects. It features animations, a project gallery, a contact form, and dynamically rendered content from a backend API.

@@ -35,7 +35,6 @@ body {
   position: relative;
   top: 0;
   width: 100%;
-  
   flex: 1;
 }
 
@@ -255,6 +254,7 @@ nav ul li a:hover {
   right: 20px;
   display: flex;
   gap: 10px;
+  z-index: 10000;
 }
 
 .hero-icons a {
@@ -475,6 +475,61 @@ button:disabled {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/***********************************   EXPERIENCE PAGE STYLES    ***********************************/
+.construction-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* SVG container with responsive sizing */
+.svg-container {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(160deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 300% 300%;
+  animation: background-pan 10s infinite linear;
+  -webkit-mask-image: url('./images/under-construction.svg');
+  mask-image: url('./images/under-construction.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .svg-container {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svg-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.construction-message p {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.construction-message a {
+  color: #ff6b6b;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.construction-message a:hover {
+  color: #f94d6a;
 }
 
 /***********************************   PROJECT PAGE STYLES    ***********************************/

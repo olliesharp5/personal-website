@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import UnderConstruction from '../images/under-construction.svg';
+import downloadCV from '../utils/downloadCV';
 
 const Experience = () => {
   const [experiences, setExperiences] = useState([]);
@@ -17,15 +20,24 @@ const Experience = () => {
   return (
     <div className="content">
       <h1>Experience</h1>
-      <ul>
-        {experiences.map(exp => (
-          <li key={exp.id}>
-            <h3>{exp.role} at {exp.company}</h3>
-            <p>{exp.description}</p>
-            <p>{exp.start_date} - {exp.end_date || 'Present'}</p>
-          </li>
-        ))}
-      </ul>
+
+      {/* Animated "Under Construction" SVG and Text */}
+      <motion.div
+        className="construction-message"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
+      >
+        <div className="svg-container">
+          <img src={UnderConstruction} alt="Under Construction" className="masked-svg" />
+        </div>
+        
+        <p>
+          This page is still under construction! For now, please visit my 
+          <a href="https://www.linkedin.com/in/oliver-sharp-3b4219201/" target="_blank" rel="noopener noreferrer"> LinkedIn profile</a> or 
+          <a href="#download" onClick={downloadCV}> download my CV</a> to view my work experience.
+        </p>
+      </motion.div>
     </div>
   );
 };

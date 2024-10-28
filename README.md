@@ -67,48 +67,61 @@ You can visit the live website here:
 
 ## Database Structure
 
-- **Skill Model:**
-  - `name` (string, max 100 characters) – Name of the skill.
-  - `proficiency` (integer, 1 to 10) – Proficiency level.
-  - `icon` (file, optional) – SVG file representing the skill.
-  - `description` (text, optional) – Detailed description of the skill.
-  - `category` (choice field) – Category of the skill, options are:
-    - `code`
-    - `toolbox`
-    - `soft`
+### Skill Model
 
-- **Project Model:**
-  - `title` (string, max 200 characters) – Title of the project.
-  - `description` (text) – Detailed description of the project.
-  - `technology` (many-to-many with Skill) – Skills/technologies used in the project.
-  - `github_link` (URL) – Link to the project’s GitHub repository.
-  - `completed_date` (date, optional) – Completion date of the project.
-  - `status` (choice field) – Project status, options are:
-    - `in_progress`
-    - `completed`
-  - `is_code_institute` (boolean) – Indicates if the project was completed as part of Code Institute.
+| Field         | Type                   | Description                                       |
+|---------------|------------------------|---------------------------------------------------|
+| `name`        | String (100)           | Name of the skill                                 |
+| `proficiency` | Integer (1–10)         | Proficiency level, ranging from 1 to 10           |
+| `icon`        | File (optional)        | SVG file representing the skill                   |
+| `description` | Text (optional)        | Detailed description of the skill                 |
+| `category`    | Choice (code, toolbox, soft) | Category of the skill                   |
 
-- **ProjectImage Model:**
-  - `project` (foreign key to Project) – Related project.
-  - `images` (image) – Images related to the project, saved under `projects/<project_folder>/<filename>`.
+### Project Model
 
-- **Company Model:**
-  - `name` (string, max 200 characters) – Name of the company.
-  - `logo` (image, optional) – Company logo, uploaded to `experiences/logos/`.
+| Field             | Type                          | Description                                                       |
+|-------------------|-------------------------------|-------------------------------------------------------------------|
+| `title`           | String (200)                  | Title of the project                                              |
+| `description`     | Text                          | Detailed description of the project                               |
+| `technology`      | Many-to-many (Skill)          | Skills/technologies used in the project                           |
+| `github_link`     | URL                           | Link to the project’s GitHub repository                           |
+| `completed_date`  | Date (optional)               | Completion date of the project                                    |
+| `status`          | Choice (in_progress, completed) | Project status                                                |
+| `is_code_institute` | Boolean                     | Indicates if the project was completed as part of Code Institute  |
 
-- **Role Model:**
-  - `company` (foreign key to Company) – Associated company.
-  - `title` (string, max 200 characters) – Title or position held.
-  - `start_date` (date) – Start date of the role.
-  - `end_date` (date, optional) – End date of the role; can be left blank for ongoing roles.
-  - `description` (text) – Description of responsibilities and achievements.
+### ProjectImage Model
 
-- **Contact Model:**
-  - `name` (string, max 100 characters) – Sender's name.
-  - `email` (email) – Sender's email address.
-  - `subject` (string, max 200 characters) – Subject of the message.
-  - `message` (text) – Content of the message.
-  - `created_at` (datetime) – Timestamp of when the message was sent.
+| Field        | Type                          | Description                                                    |
+|--------------|-------------------------------|----------------------------------------------------------------|
+| `project`    | Foreign key (Project)         | Related project                                                |
+| `images`     | Image                         | Images related to the project, saved under `projects/<project_folder>/<filename>` |
+
+### Company Model
+
+| Field     | Type                   | Description                               |
+|-----------|------------------------|-------------------------------------------|
+| `name`    | String (200)           | Name of the company                       |
+| `logo`    | Image (optional)       | Company logo, uploaded to `experiences/logos/` |
+
+### Role Model
+
+| Field         | Type                          | Description                                                    |
+|---------------|-------------------------------|----------------------------------------------------------------|
+| `company`     | Foreign key (Company)         | Associated company                                             |
+| `title`       | String (200)                  | Title or position held                                         |
+| `start_date`  | Date                          | Start date of the role                                         |
+| `end_date`    | Date (optional)               | End date of the role; can be left blank for ongoing roles      |
+| `description` | Text                          | Description of responsibilities and achievements               |
+
+### Contact Model
+
+| Field         | Type                   | Description                                       |
+|---------------|------------------------|---------------------------------------------------|
+| `name`        | String (100)           | Sender's name                                    |
+| `email`       | Email                  | Sender's email address                           |
+| `subject`     | String (200)           | Subject of the message                           |
+| `message`     | Text                   | Content of the message                           |
+| `created_at`  | Datetime               | Timestamp of when the message was sent           |
 
 ## API Endpoints
 - `/api/projects/` – Retrieve all projects

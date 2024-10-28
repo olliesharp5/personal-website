@@ -16,7 +16,7 @@ const Experience = () => {
 
   return (
     <div className="content">
-      <h2>Experience</h2>
+      <h1>Experience</h1>
       <ul>
         {experiences.map(exp => (
           <li key={exp.id}>

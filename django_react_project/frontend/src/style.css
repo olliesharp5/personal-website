@@ -47,7 +47,7 @@ body {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 2em;
   margin-bottom: 0.3em;
   color: #ffffff;
 }
@@ -83,6 +83,12 @@ p {
 
 .coloured-button:hover {
   transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin-top: 10px;
+  }
 }
 
 /***********************************   STANDARD NAV STYLES    ***********************************/
@@ -484,7 +490,7 @@ button:disabled {
   height: auto;
   transition: all 0.3s ease;
   border: 3px solid rgb(65, 65, 65);
-  max-width: 600px; /* Consistent max width */
+  max-width: 600px;
   
 }
 
@@ -514,8 +520,8 @@ button:disabled {
 
 /* Expand/Minimize Arrow */
 .expand-arrow-container {
-  margin-top: 10px; /* Separate arrow from main content */
-  text-align: center; /* Center the arrow within its row */
+  margin-top: 10px;
+  text-align: center;
 }
 
 .expand-arrow {

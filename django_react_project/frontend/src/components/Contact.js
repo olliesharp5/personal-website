@@ -5,7 +5,7 @@ import ContactForm from './contact/ContactForm';
 
 const Contact = () => (
   <div className="content">
-    <h2>Contact me!</h2>
+    <h1>Contact me!</h1>
     <h4>
       Interested in working together or have questions? Feel free to reach out via the form below.
       I'm open to new opportunities and collaborations, and I'd love to hear from you.

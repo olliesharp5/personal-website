@@ -52,7 +52,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   color: #f0f0f0;
 }
 
@@ -141,7 +141,7 @@ nav ul li a:hover {
 }
 
 .cv-button {
-  padding: 10px 20px;
+  padding: 7px 10px;
 }
 
 /***********************************   COMPACT NAV STYLES    ***********************************/
@@ -236,7 +236,7 @@ nav ul li a:hover {
 }
 
 .hero-content {
-  margin-bottom: 30%;
+  margin: 30% 0;
   text-align: center;
 }
 
@@ -322,6 +322,7 @@ nav ul li a:hover {
   /* Hero Section */
   .hero-content {
     margin-bottom: 10%;
+    margin-top: 0;
   }
 
   .hero-icons svg {
@@ -330,17 +331,19 @@ nav ul li a:hover {
   }
 
   .hero-grid {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
-    justify-content: space-between;
     max-width: 1200px;
-    padding: 0 50px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .hero-text {
-    flex: 2;
-    margin-left: 70px;
     color: white;
+    max-width: 100%;
+    margin-left: 0;
   }
 
   .hero-text h1 {
@@ -357,12 +360,20 @@ nav ul li a:hover {
     height: 300px;
   }
 
+  .about-section {
+    min-height: 60vh;
+  }
+
   .about-grid {
     margin-top: 30px;
   }
 
   .about-image-container img {
     min-width: 500px;
+  }
+
+  .about-section h3 {
+    font-size: 2rem;
   }
 
 }
@@ -694,7 +705,7 @@ button:disabled {
 .image-carousel {
   padding-top: 10px;
   width: 100%;
-  max-width: 100%; /* Prevent overflow beyond card */
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -748,6 +759,10 @@ button:disabled {
   .project-card {
     min-width: 70%;
     margin: 0 auto;
+  }
+
+  .project-info {
+    font-size: 1.2rem;
   }
 
   .project-description {
@@ -883,7 +898,7 @@ button:disabled {
   }
 
   .category-title {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
   }
 }
 
@@ -961,6 +976,7 @@ footer p {
   }
 
   .powered-by {
+    margin-left: auto;
     flex-direction: row;
   }
 }

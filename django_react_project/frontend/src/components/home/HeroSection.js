@@ -13,7 +13,7 @@ const HeroSection = ({ scale, y }) => (
             Oliver Sharp
           </motion.h1>
           <motion.h2 initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1, duration: 1 }}>
-            Full Stack Software Developer
+            Junior Full Stack Software Developer
           </motion.h2>
         </div>
         <motion.div className="hero-image" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1, duration: 1 }}>

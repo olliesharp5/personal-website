@@ -15,7 +15,6 @@ const Footer = () => {
       animate="visible"
       variants={footerVariants}
     >
-      <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
       <motion.div className="powered-by" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1.5, duration: 1 } }}>
         <span>Powered by</span>
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">

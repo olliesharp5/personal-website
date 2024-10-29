@@ -825,33 +825,12 @@ button:disabled {
   text-align: center;
   color: #fff;
   cursor: pointer;
-  perspective: 1000px;
-  transform-origin: center;
   position: relative;
+  transition: transform 0.3s ease;
 }
 
-.skill-item.flipped {
-  z-index: 2;
-}
-
-.skill-flip-card {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  position: relative;
-  transform-origin: center center;
-}
-
-.skill-front,
-.skill-back {
-  backface-visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.skill-back {
-  transform: rotateY(180deg);
+.skill-item:hover {
+  transform: scale(1.1);
 }
 
 .skill-chart-container {
@@ -860,12 +839,6 @@ button:disabled {
   height: 0;
   padding-bottom: 100%;
   margin: 0 auto;
-}
-
-.skill-back .skill-chart-container.back {
-  background-color: #000;
-  border-radius: 50%;
-  position: relative;
 }
 
 .skill-icon-overlay {
@@ -877,66 +850,45 @@ button:disabled {
   transform: translate(-50%, -50%);
 }
 
-.skill-item.flipped .skill-icon-overlay {
-  display: none;
-}
-
 .skill-name {
   margin-top: 10px;
   font-size: 1rem;
 }
 
-.skill-item.flipped .skill-name {
-  display: none;
-}
-
-.skill-description {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-  padding: 5px;
-  font-size: 10px;
-  width: 80%;
-}
-
 /* Larger Screens */
 @media (min-width: 576px) {
   .skill-item {
-    width: 100px;
-    margin: 15px;
+      width: 100px;
+      margin: 15px;
   }
 
   .skill-name {
-    font-size: 1.1rem;
+      font-size: 1.1rem;
   }
 }
 
 @media (min-width: 768px) {
   .skills-column {
-    flex: 1 1 45%;
-    margin: 10px;
+      flex: 1 1 45%;
+      margin: 10px;
   }
 
   .skills-columns {
-    flex-direction: row;
-    justify-content: space-between;
+      flex-direction: row;
+      justify-content: space-between;
   }
 
   .category-title {
-    font-size: 1.8rem;
+      font-size: 1.8rem;
   }
 }
 
 @media (min-width: 992px) {
   .skills-column {
-    flex: 1 1 30%;
-    min-width: 250px;
+      flex: 1 1 30%;
+      min-width: 250px;
   }
 }
-
 /***********************************   FOOTER STYLES    ***********************************/
 
 footer {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import placeholderImage from '../../images/placeholder-image.jpg';
+import profileImage from '../../images/profile-image.png';
 import SocialLinks from './SocialLinks';
 
 const HeroSection = ({ scale, y }) => (
@@ -17,7 +17,7 @@ const HeroSection = ({ scale, y }) => (
           </motion.h2>
         </div>
         <motion.div className="hero-image" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1, duration: 1 }}>
-          <img src={placeholderImage} alt="Profile" />
+          <img src={profileImage} alt="Profile" />
         </motion.div>
       </motion.div>
     </motion.div>

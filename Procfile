@@ -1,1 +1,1 @@
-web: gunicorn django_react_project.backend.backend.wsgi --log-file -
+web: PYTHONPATH=$PYTHONPATH:./django_react_project/backend gunicorn backend.wsgi --log-file -

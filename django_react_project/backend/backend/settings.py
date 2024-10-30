@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://oliver-sharp-3456c1c11395.herokuapp.com/"]
+ALLOWED_HOSTS = ["oliver-sharp-3456c1c11395.herokuapp.com"]
 
 # Application definition
 

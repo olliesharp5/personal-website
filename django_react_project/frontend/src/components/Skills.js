@@ -36,7 +36,7 @@ const Skills = () => {
 
   return (
     <div className="content skills-page">
-      <h1>Skills</h1>
+      <h1>My Skills</h1>
       <div className="skills-columns">
         {categoryOrder.map((categoryKey, catIndex) =>
           skillsByCategory[categoryKey] ? (

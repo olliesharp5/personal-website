@@ -22,7 +22,7 @@ This repository contains the code for my personal portfolio website, built with 
 
 ![Website look on different devices](./assets/readme_assets/responsive_design.png)
 
-### A live demo to the website can be found [here](https://green-thumb1-5e1e889069e1.herokuapp.com/)
+### A live demo to the website can be found [here]()
 
 ## UX <hr>
 
@@ -178,5 +178,6 @@ This project is a personal portfolio website to showcase my skills, experience, 
 
 ## Future Improvements
 - Add multi-language support
+- Add light mode
 - Complete the experiences page
 - Include a blog section for writing about development experiences

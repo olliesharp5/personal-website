@@ -887,7 +887,7 @@ button:disabled {
 @media (min-width: 768px) {
   .skills-column {
       flex: 1 1 45%;
-      margin: 10px;
+      margin: 40px;
   }
 
   .skills-columns {

@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://localhost/mypersonalwebsite_db'
+        default=f"postgres://default_user:{os.getenv('POSTRESQL_PASSWORD')}@localhost:5432/mypersonalwebsite_db"
     )
 }
 
@@ -134,6 +134,10 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

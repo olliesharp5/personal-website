@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'api',
+    'django_react_project.backend.api',
 ]
 
 MIDDLEWARE = [

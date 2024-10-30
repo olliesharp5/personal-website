@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls')),
-    re_path(r'^.*$', views.index, name='index'),
+    path('api/', include('api.urls')),  # API routes
+    re_path(r'^.*$', views.index, name='index'),  # Catch-all for frontend
 ]

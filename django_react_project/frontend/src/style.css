@@ -793,13 +793,14 @@ button:disabled {
 
 .skills-columns {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+
 .skills-column {
-  flex: 1 1 100%;
-  margin: 20px 0;
+  flex: 1 1 30%;
+  margin: 20px;
   text-align: center;
 }
 
@@ -841,13 +842,8 @@ button:disabled {
   margin: 10px;
   text-align: center;
   color: #fff;
-  cursor: pointer;
   position: relative;
   transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-  transform: scale(1.1);
 }
 
 .skill-chart-container {

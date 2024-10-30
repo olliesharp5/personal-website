@@ -24,11 +24,12 @@ const getColorByProficiency = (proficiency) => {
 
 const SkillItem = ({ skill, index }) => (
     <motion.div
-        className="skill-item"
-        whileHover={{ scale: 1.1 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="skill-item"
+    whileHover={{ scale: 1.1 }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ scale: 1 }}
+    transition={{ duration: 0.3 }}
     >
         <div className="skill-chart-container">
             <CircularProgressbar

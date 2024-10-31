@@ -20,7 +20,7 @@ This repository contains the code for my personal portfolio website, built with 
 
 ## Demo <hr>
 
-![Website look on different devices](./assets/readme_assets/responsive_design.png)
+![Website look on different devices]()
 
 ### A live demo to the website can be found [here]()
 
@@ -53,7 +53,9 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - **Other Tools:**
   - React-Burger-Menu for mobile navigation
   - Axios for API calls
-  - Azure for deployment and media storage
+  - Azure for media storage
+  - Heroku for Django REST backend deployment
+  - Netlify for React frontend deployment
 
 ## User Stories
 1. **As a visitor,** I want to view a gallery of projects with their details, so I can see the developer's work.

@@ -100,11 +100,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=f"postgres://default_user:{os.getenv('POSTRESQL_PASSWORD')}@localhost:5432/mypersonalwebsite_db"
-    )
-}
+if os.getenv('DJANGO_DEVELOPMENT') == 'True':
+    # Local development database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'mypersonalwebsite_db',
+            'USER': 'default_user',
+            'PASSWORD': os.getenv('POSTRESQL_PASSWORD'),
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+else:
+    # Heroku production database
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

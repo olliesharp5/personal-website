@@ -361,15 +361,13 @@ nav ul li a:hover {
   }
 
   .about-section {
-    min-height: 60vh;
-  }
-
-  .about-grid {
-    margin-top: 30px;
+    max-height: 50vh;
   }
 
   .about-image-container img {
-    min-width: 500px;
+    max-height: 450px;
+    width: auto;
+    margin-bottom: 20px;
   }
 
   .about-section h3 {

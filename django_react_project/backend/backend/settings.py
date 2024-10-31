@@ -100,8 +100,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DATABASES = {
+    'default': {}
+}
+
 if os.getenv('DJANGO_DEVELOPMENT') == 'True':
-    # Local development database
+    # Local development database settings
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -113,7 +117,7 @@ if os.getenv('DJANGO_DEVELOPMENT') == 'True':
         }
     }
 else:
-    # Heroku production database
+    # Heroku production database settings
     DATABASES = {
         'default': dj_database_url.config()
     }

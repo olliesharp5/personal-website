@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { successToast, errorToast } from '../toastConfig';
+import API_BASE_URL from '../config';
+
 
 const useContactForm = () => {
   const [formData, setFormData] = useState({
@@ -39,7 +41,7 @@ const useContactForm = () => {
 
     setIsSubmitting(true);
     try {
-      await axios.post('http://127.0.0.1:8000/contacts/', formData);
+      await axios.post(`${API_BASE_URL}/api/contacts/`, formData);
       successToast(formData.email);
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import SkillItem from './skills/SkillItem';
+import API_BASE_URL from '../config';
 
 const Skills = () => {
   const [skillsByCategory, setSkillsByCategory] = useState({});
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/skills/')
+      .get(`${API_BASE_URL}/api/skills/`)
       .then((response) => {
         const skills = response.data;
         // Group skills by category

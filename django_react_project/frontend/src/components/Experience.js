@@ -3,12 +3,13 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import UnderConstruction from '../images/under-construction.svg';
 import downloadCV from '../utils/downloadCV';
+import API_BASE_URL from '../config';
 
 const Experience = () => {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/companies/')
+    axios.get(`${API_BASE_URL}/api/companies/`)
       .then(response => {
         setExperiences(response.data);
       })

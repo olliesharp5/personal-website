@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'; // Import skeleton styles
 import SkillItem from './skills/SkillItem';
 import API_BASE_URL from '../config';
 
 const Skills = () => {
   const [skillsByCategory, setSkillsByCategory] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -21,8 +24,12 @@ const Skills = () => {
           return acc;
         }, {});
         setSkillsByCategory(groupedSkills);
+        setLoading(false); // Set loading to false after data is fetched
       })
-      .catch((error) => console.error('Error fetching skills:', error));
+      .catch((error) => {
+        console.error('Error fetching skills:', error);
+        setLoading(false); // Ensure loading state is false even if there's an error
+      });
   }, []);
 
   // Map category keys to display names
@@ -39,8 +46,14 @@ const Skills = () => {
     <div className="content skills-page">
       <h1>My Tech Skills</h1>
       <div className="skills-columns">
-        {categoryOrder.map((categoryKey, catIndex) =>
-          skillsByCategory[categoryKey] ? (
+        {categoryOrder.map((categoryKey, catIndex) => {
+          // Check if there are skills in the category or if it's still loading
+          const skills = skillsByCategory[categoryKey];
+          if (!loading && (!skills || skills.length === 0)) {
+            return null; // Do not render empty categories
+          }
+
+          return (
             <div className="skills-column" key={categoryKey}>
               <motion.h3
                 className="category-title"
@@ -51,13 +64,24 @@ const Skills = () => {
                 {categoryTitles[categoryKey]}
               </motion.h3>
               <div className="skills-grid">
-                {skillsByCategory[categoryKey].map((skill, index) => (
-                  <SkillItem skill={skill} index={index} key={skill.id} />
-                ))}
+                {loading ? (
+                  // Show skeletons when loading
+                  <>
+                    <Skeleton height={30} style={{ marginBottom: '10px' }} />
+                    <Skeleton height={30} style={{ marginBottom: '10px' }} />
+                    <Skeleton height={30} style={{ marginBottom: '10px' }} />
+                    <Skeleton height={30} style={{ marginBottom: '10px' }} />
+                    <Skeleton height={30} style={{ marginBottom: '10px' }} />
+                  </>
+                ) : (
+                  skills.map((skill, index) => (
+                    <SkillItem skill={skill} index={index} key={skill.id} />
+                  ))
+                )}
               </div>
             </div>
-          ) : null
-        )}
+          );
+        })}
       </div>
     </div>
   );

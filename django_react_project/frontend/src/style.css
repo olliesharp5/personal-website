@@ -797,7 +797,7 @@ button:disabled {
 
 
 .skills-column {
-  flex: 1 1 30%;
+  flex: 1 1 100%;
   margin: 20px;
   text-align: center;
 }

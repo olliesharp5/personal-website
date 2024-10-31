@@ -1,4 +1,4 @@
 [build]
-  base = "frontend"
-  publish = "frontend/build"
+  base = "django_react_project/frontend"
+  publish = "django_react_project/frontend/build"
   command = "yarn build"

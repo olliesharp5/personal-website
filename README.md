@@ -1,7 +1,9 @@
 # Personal Website
 
 <hr>
+
 ### Please note: This website has been deployed, however, I am continuing to add improvements and features. In this document under "Future Improvements" I have listed the features I am continuing to work on. 
+
 <hr>
 
 This repository contains the code for my personal portfolio website, built with a React frontend, Django REST API backend, and Azure Blob Storage for media files.

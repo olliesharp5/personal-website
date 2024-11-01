@@ -22,7 +22,6 @@ This repository contains the code for my personal portfolio website, built with 
 - [Credits](#credits)
 - [Target Audience](#target-audience)
 - [Future Improvements](#future-improvements)
-- [License](#license)
 
 ## Demo <hr>
 
@@ -187,6 +186,10 @@ This project is a personal portfolio website to showcase my skills, experience, 
 ## Future Improvements
 - Add multi-language support
 - Add light mode
+- Order projects based on date completed
+- Add live link in addition to the existing repo link on projects card 
+- Arrange skills based on proficiency 
+- Add capability to display soft skills in Skills section
 - Complete the experiences page
 - Include a blog section for writing about development experiences
 - Include separate section for collaborative projects conducted at hackthons 

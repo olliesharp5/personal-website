@@ -1,5 +1,7 @@
 # Personal Website
 
+## Please note: This website has been deployed, however, I am continuing to add improvements and features. In this document under "Future Improvements" I have listed the features I am continuing to work on. 
+
 This repository contains the code for my personal portfolio website, built with a React frontend, Django REST API backend, and Azure Blob Storage for media files.
 
 ## Table of Contents
@@ -174,7 +176,7 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - Photo by Life Of Pix: https://www.pexels.com/photo/gray-rock-8892/ (background image)
 
 ## Target Audience
-- Employers looking to hire full-stack developers
+- Employers looking to hire developers
 - Clients seeking web development services
 - Fellow developers for collaboration and inspiration
 
@@ -183,3 +185,4 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - Add light mode
 - Complete the experiences page
 - Include a blog section for writing about development experiences
+- Include separate section for collaborative projects conducted at hackthons 

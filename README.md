@@ -20,9 +20,9 @@ This repository contains the code for my personal portfolio website, built with 
 
 ## Demo <hr>
 
-![Website look on different devices]()
+![Website look on different devices](./readme_assets/responsive-design.png)
 
-### A live demo to the website can be found [here]()
+### A live demo to the website can be found [here](https://oliver-sharp.netlify.app/)
 
 ## UX <hr>
 

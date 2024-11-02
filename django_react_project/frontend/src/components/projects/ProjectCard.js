@@ -76,11 +76,6 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                 </motion.div>
             )}
         </AnimatePresence>
-
-        {/* Separate Expand Arrow Row */}
-        <div className="expand-arrow-container">
-            <div className="expand-arrow">&#x25BC;</div>
-        </div>
     </motion.div>
 );
 

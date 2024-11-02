@@ -553,6 +553,7 @@ button:disabled {
   position: relative;
   background: #000000;
   color: #fff;
+  cursor: pointer;
   padding: 15px;
   border-radius: 5px;
   overflow: hidden;
@@ -583,33 +584,8 @@ button:disabled {
 .preview-image {
   width: 200px;
   height: 120px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
-}
-
-/* Expand/Minimize Arrow */
-.expand-arrow-container {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.expand-arrow {
-  font-size: 24px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  background: linear-gradient(160deg, #ff6b6b 0%, #f94d6a 25%, #5630a3 50%, #f94d6a 75%, #ff6b6b 100%);
-  background-size: 300% 300%;
-  animation: background-pan 70s infinite linear !important;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/* Rotate arrow when card is expanded */
-.project-card.expanded .expand-arrow {
-  transform: rotate(180deg);
 }
 
 /* Expanded Content */
@@ -769,11 +745,7 @@ button:disabled {
     margin: 0 auto;
   }
 
-  .expand-arrow {
-    opacity: 0;
-  }
-
-  .project-card:hover .expand-arrow {
+  .project-card:hover {
     opacity: 1;
   }
 }

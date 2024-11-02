@@ -812,7 +812,6 @@ button:disabled {
   text-align: center;
   color: #fff;
   position: relative;
-  transition: transform 0.3s ease;
 }
 
 .skill-chart-container {

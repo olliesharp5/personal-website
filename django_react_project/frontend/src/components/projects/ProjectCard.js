@@ -9,6 +9,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
+        whileHover={!isExpanded ? { scale: 1.05, transition: { duration: 0.1 } } : {}}
     >
         {/* Minimized View */}
         {!isExpanded && (

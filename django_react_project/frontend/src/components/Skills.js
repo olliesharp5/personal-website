@@ -15,6 +15,7 @@ const Skills = () => {
       .get(`${API_BASE_URL}/api/skills/`)
       .then((response) => {
         const skills = response.data;
+
         // Group skills by category
         const groupedSkills = skills.reduce((acc, skill) => {
           if (!acc[skill.category]) {
@@ -23,6 +24,12 @@ const Skills = () => {
           acc[skill.category].push(skill);
           return acc;
         }, {});
+
+        // Sort skills within each category by proficiency (highest first)
+        Object.keys(groupedSkills).forEach((category) => {
+          groupedSkills[category].sort((a, b) => b.proficiency - a.proficiency);
+        });
+
         setSkillsByCategory(groupedSkills);
         setLoading(false); // Set loading to false after data is fetched
       })

@@ -188,7 +188,6 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - Add multi-language support
 - Add light mode
 - Add live link in addition to the existing repo link on projects card 
-- Add capability to display soft skills in Skills section
 - Complete the experiences page
 - Include a blog section for writing about development experiences
 - Include separate section for collaborative projects conducted at hackthons 

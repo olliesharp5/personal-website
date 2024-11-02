@@ -867,6 +867,11 @@ button:disabled {
   .category-title {
       font-size: 1.3rem;
   }
+
+  .skills-column:nth-child(3) {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 992px) {

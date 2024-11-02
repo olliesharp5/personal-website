@@ -424,6 +424,11 @@ nav ul li a:hover {
 }
 
 /***********************************   CONTACT STYLES    ***********************************/
+.contact-link {
+  color: #ff6b6b;
+  text-decoration: none;
+}
+
 form {
   display: flex;
   flex-direction: column;

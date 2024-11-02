@@ -177,6 +177,7 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - https://www.npmjs.com/package/react-icons  (documentation for react-icons library)
 - https://www.framer.com/motion/ (documentation for FramerMotion libary)
 - Photo by Life Of Pix: https://www.pexels.com/photo/gray-rock-8892/ (background image)
+- React-Toastify documentation: https://www.npmjs.com/package/react-toastify 
 
 ## Target Audience
 - Employers looking to hire developers
@@ -186,7 +187,6 @@ This project is a personal portfolio website to showcase my skills, experience, 
 ## Future Improvements
 - Add multi-language support
 - Add light mode
-- Order projects based on date completed
 - Add live link in addition to the existing repo link on projects card 
 - Arrange skills based on proficiency 
 - Add capability to display soft skills in Skills section

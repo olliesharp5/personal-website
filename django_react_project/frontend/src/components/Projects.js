@@ -11,7 +11,12 @@ const Projects = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/api/projects/`);
-        setProjects(response.data);
+        const sortedProjects = response.data.sort((a, b) => {
+          const dateA = a.completed_date ? new Date(a.completed_date) : new Date(0);
+          const dateB = b.completed_date ? new Date(b.completed_date) : new Date(0);
+          return dateB - dateA;
+        });
+        setProjects(sortedProjects);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }

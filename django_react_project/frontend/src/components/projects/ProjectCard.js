@@ -1,7 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaGlobe } from 'react-icons/fa';
 import Carousel from './Carousel';
+
+// Function to format the date
+const formatDate = (dateString) => {
+    if (!dateString) return '';
+    return new Intl.DateTimeFormat('en-GB').format(new Date(dateString));
+};
 
 const ProjectCard = ({ project, isExpanded, onExpand }) => (
     <motion.div
@@ -17,7 +23,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
             <div className="project-preview">
                 <div className="project-info">
                     <h3>{project.title}</h3>
-                    <h5 className="completed-date">Completed on: {project.completed_date}</h5>
+                    <h5 className="completed-date">Completed on: {formatDate(project.completed_date)}</h5>
                 </div>
                 {project.project_images.length > 0 && (
                     <img
@@ -76,7 +82,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                                 onClick={(e) => e.stopPropagation()}
                                 whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                             >
-                                <FaExternalLinkAlt size={35} />
+                                <FaGlobe size={35} />
                             </motion.a>
                         )}
                     </div>
@@ -99,7 +105,7 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                     )}
 
                     <div className="completed-expanded">
-                        Completed on: {project.completed_date}
+                    Completed on: {formatDate(project.completed_date)}
                     </div>
                 </motion.div>
             )}

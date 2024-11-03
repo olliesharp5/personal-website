@@ -588,6 +588,7 @@ button:disabled {
 .completed-date {
   font-size: 0.9em;
   color: #cccccc;
+  font-weight: bold;
 }
 
 .preview-image {
@@ -756,6 +757,7 @@ button:disabled {
 
 .completed-expanded {
   margin-top: 30px;
+  font-weight: bold;
 }
 
 /* Responsive Styles */

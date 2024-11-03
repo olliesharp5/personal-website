@@ -37,7 +37,9 @@ const Projects = () => {
       <div className="projects-grid">
         {loading ? (
           // Show spinner inside projects-grid while loading
-          <div className="large-spinner"></div>
+          <div className="spinner-container">
+            <div className="large-spinner"></div>
+          </div>
         ) : (
           projects.map((project) => (
             <ProjectCard

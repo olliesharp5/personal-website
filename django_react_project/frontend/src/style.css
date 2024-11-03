@@ -544,6 +544,13 @@ button:disabled {
 }
 
 /***********************************   PROJECT PAGE STYLES    ***********************************/
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;

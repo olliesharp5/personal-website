@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Carousel from './Carousel';
 
 const ProjectCard = ({ project, isExpanded, onExpand }) => (
@@ -44,16 +45,32 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                     <div className="title-container">
                         <h2>{project.title}</h2>
                     </div>
-                    <div className='repo-container'>
-                        <a
+                    <div className="repo-container">
+                        {/* GitHub Icon Link */}
+                        <motion.a
                             href={project.github_link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="coloured-button repo-link"
+                            className="icon-link"
                             onClick={(e) => e.stopPropagation()}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                         >
-                            GitHub Repo
-                        </a>
+                            <FaGithub size={35} />
+                        </motion.a>
+
+                        {/* Live Link Icon (conditionally rendered) */}
+                        {project.live_link && (
+                            <motion.a
+                                href={project.live_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="icon-link"
+                                onClick={(e) => e.stopPropagation()}
+                                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                            >
+                                <FaExternalLinkAlt size={35} />
+                            </motion.a>
+                        )}
                     </div>
 
                     <p className="project-description">{project.description}</p>

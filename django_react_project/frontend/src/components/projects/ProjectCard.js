@@ -41,10 +41,18 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                         duration: 0.5,
                         ease: 'easeInOut',
                     }}
-                >
+
+                >   {/* Hackathon Banner */}
+                    {project.is_hackathon && (
+                        <div className="hackathon-banner">
+                            Hackathon Project
+                        </div>
+                    )}
+
                     <div className="title-container">
                         <h2>{project.title}</h2>
                     </div>
+
                     <div className="repo-container">
                         {/* GitHub Icon Link */}
                         <motion.a

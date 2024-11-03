@@ -604,6 +604,18 @@ button:disabled {
   height: auto;
 }
 
+.hackathon-banner {
+  width: 100%;
+  background: linear-gradient(160deg, #ff6b6b, #f94d6a, #5630a3, #f94d6a, #ff6b6b);
+  background-size: 300% 300%;
+  animation: background-pan 10s infinite linear;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 25px;
+}
+
 .title-container {
   align-items: center;
   width: 100%;
@@ -612,9 +624,9 @@ button:disabled {
 
 .repo-container {
   display: flex;
-  justify-content: center; /* Center the icons horizontally */
-  gap: 20px; /* Space between the icons */
-  align-items: center; /* Center the icons vertically */
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
 }
 
 .icon-link {

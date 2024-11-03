@@ -72,18 +72,21 @@ const Skills = () => {
               </motion.h3>
               <div className="skills-grid">
                 {loading ? (
-                  // Show skeletons when loading
+                  // Show spinner and skeletons while loading
                   <>
+                    <div className="large-spinner"></div>
                     <Skeleton height={30} style={{ marginBottom: '10px' }} />
                     <Skeleton height={30} style={{ marginBottom: '10px' }} />
                     <Skeleton height={30} style={{ marginBottom: '10px' }} />
                     <Skeleton height={30} style={{ marginBottom: '10px' }} />
                     <Skeleton height={30} style={{ marginBottom: '10px' }} />
                   </>
-                ) : (
+                ) : skills && skills.length > 0 ? (
                   skills.map((skill, index) => (
                     <SkillItem skill={skill} index={index} key={skill.id} />
                   ))
+                ) : (
+                  <p>No skills available.</p>
                 )}
               </div>
             </div>

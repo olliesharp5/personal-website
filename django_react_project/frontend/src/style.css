@@ -84,6 +84,14 @@ p {
   transform: scale(1.05);
 }
 
+.large-spinner {
+  border-top: 7px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
 @media (min-width: 768px) {
   .content {
     margin-top: 10px;
@@ -480,17 +488,6 @@ button:disabled {
   animation: spin 0.8s linear infinite;
 }
 
-/* Spinner animation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /***********************************   EXPERIENCE PAGE STYLES    ***********************************/
 .construction-message {
   display: flex;
@@ -856,7 +853,6 @@ button:disabled {
 @media (min-width: 768px) {
   .skills-column {
       flex: 1 1 45%;
-      margin: 40px;
   }
 
   .skills-columns {
@@ -965,5 +961,16 @@ footer p {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

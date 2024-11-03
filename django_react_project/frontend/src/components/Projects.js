@@ -5,6 +5,7 @@ import API_BASE_URL from '../config';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
@@ -17,8 +18,10 @@ const Projects = () => {
           return dateB - dateA;
         });
         setProjects(sortedProjects);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching projects:', error);
+        setLoading(false);
       }
     };
     fetchProjects();
@@ -32,14 +35,19 @@ const Projects = () => {
     <div className="content">
       <h1>My Projects</h1>
       <div className="projects-grid">
-        {projects.map(project => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            isExpanded={selectedProject === project.id}
-            onExpand={() => handleExpandProject(project.id)}
-          />
-        ))}
+        {loading ? (
+          // Show spinner inside projects-grid while loading
+          <div className="large-spinner"></div>
+        ) : (
+          projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isExpanded={selectedProject === project.id}
+              onExpand={() => handleExpandProject(project.id)}
+            />
+          ))
+        )}
       </div>
     </div>
   );

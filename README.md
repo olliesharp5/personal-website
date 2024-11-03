@@ -178,6 +178,7 @@ This project is a personal portfolio website to showcase my skills, experience, 
 - https://www.framer.com/motion/ (documentation for FramerMotion libary)
 - Photo by Life Of Pix: https://www.pexels.com/photo/gray-rock-8892/ (background image)
 - React-Toastify documentation: https://www.npmjs.com/package/react-toastify 
+- https://www.reshot.com/ (logos for soft skills)
 
 ## Target Audience
 - Employers looking to hire developers

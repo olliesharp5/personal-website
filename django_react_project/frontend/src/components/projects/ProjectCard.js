@@ -59,12 +59,14 @@ const ProjectCard = ({ project, isExpanded, onExpand }) => (
                     <p className="project-description">{project.description}</p>
 
                     <div className="technologies-container">
-                        {project.technology.map((skill) => (
-                            <div key={skill.name} className="tech-icon-wrapper">
-                                <img src={skill.icon} alt={skill.name} className="tech-icon" />
-                                <span className="tooltip">{skill.name}</span>
-                            </div>
-                        ))}
+                        <div className="technologies-inner">
+                            {project.technology.map((skill) => (
+                                <div key={skill.name} className="tech-icon-wrapper">
+                                    <img src={skill.icon} alt={skill.name} className="tech-icon" />
+                                    <span className="tooltip">{skill.name}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {project.project_images.length > 1 && (

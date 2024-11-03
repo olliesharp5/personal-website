@@ -625,6 +625,7 @@ button:disabled {
 
 .technologies-container {
   display: flex;
+  justify-content: flex-start;
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 10px;
@@ -632,10 +633,14 @@ button:disabled {
   scroll-behavior: smooth;
 }
 
-.technologies-row {
-  display: inline-flex;
-  gap: 10px;
+.technologies-inner {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
+}
+
+.tech-icon-wrapper {
+  display: inline-block;
 }
 
 .technologies-container::-webkit-scrollbar {

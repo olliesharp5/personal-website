@@ -766,14 +766,18 @@ button:disabled {
   .projects-grid {
     margin-top: 40px;
   }
+
+  .project-preview {
+    max-height: 80px;
+  }
   
   .project-card {
     min-width: 70%;
     margin: 0 auto;
   }
 
-  .project-info {
-    font-size: 1.2rem;
+  .completed-date {
+    margin-top: 0;
   }
 
   .project-description {

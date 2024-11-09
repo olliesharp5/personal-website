@@ -14,7 +14,7 @@ const AboutSection = ({ scale }) => {
               </motion.h3>
       <div className="about-grid">
         <motion.div className="about-image-container" style={{ scale }}>
-          <img src={aboutImage} alt="About Me" />
+          <img src={aboutImage} alt="About Me" loading="lazy" />
         </motion.div>
         <motion.div className="about-text" style={{ scale }}>
           <p>

@@ -17,7 +17,7 @@ const HeroSection = ({ scale, y }) => (
           </motion.h2>
         </div>
         <motion.div className="hero-image" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1, duration: 0.5 }}>
-          <img src={profileImage} alt="Profile" loading="lazy" />
+          <img src={profileImage} alt="Profile" />
         </motion.div>
       </motion.div>
     </motion.div>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AnimatedRoutes from './components/AnimatedRoutes';
-import Footer from './components/Footer';
 import './style.css';
+
+// Lazy load the Footer component
+const Footer = React.lazy(() => import('./components/Footer'));
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +32,11 @@ const App = () => {
           closeMenu={closeMenu}
         />
         <AnimatedRoutes navItems={navItems} />
-        <Footer />
+        
+        {/* Lazy load the Footer */}
+        <Suspense fallback={<div>Loading footer...</div>}>
+          <Footer />
+        </Suspense>
       </div>
     </Router>
   );

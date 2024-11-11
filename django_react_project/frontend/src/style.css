@@ -574,15 +574,7 @@ button:disabled {
 }
 
 .project-preview {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.project-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .completed-date {
@@ -769,6 +761,15 @@ button:disabled {
 
   .project-preview {
     max-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   
   .project-card {

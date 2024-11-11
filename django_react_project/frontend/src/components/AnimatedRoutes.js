@@ -6,6 +6,7 @@ import Projects from './Projects';
 import Skills from './Skills';
 import Experience from './Experience';
 import Contact from './Contact';
+import NotFound from './NotFound';
 
 const AnimatedRoutes = ({ navItems }) => {
   const location = useLocation();
@@ -61,6 +62,10 @@ const AnimatedRoutes = ({ navItems }) => {
             <Route path="/skills" element={<Skills />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* Catch-all route for undefined paths */}
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
         </motion.div>
       </AnimatePresence>

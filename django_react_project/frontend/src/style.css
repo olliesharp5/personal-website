@@ -992,6 +992,10 @@ footer p {
   }
 }
 
+.button-404 {
+  padding: 10px;
+}
+
 /***********************************   KEYFRAMES    ***********************************/
 @keyframes background-pan {
   0% {

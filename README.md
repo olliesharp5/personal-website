@@ -188,8 +188,6 @@ This project is a personal portfolio website to showcase my skills, experience, 
 ## Future Improvements
 - Add multi-language support
 - Add light mode
-- Add live link in addition to the existing repo link on projects card 
 - Complete the experiences page
 - Add further animations to the loading of the site 
 - Include a blog section for writing about development experiences
-- Include separate section for collaborative projects conducted at hackthons 
